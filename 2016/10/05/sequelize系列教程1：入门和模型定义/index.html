@@ -1,0 +1,657 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="sequelize," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="sequelize是一款node.js下最受欢迎的orm框架，支持mysql、PostgreSQL、sqlite等关系型数据库。详细使用请查看官方文档。
+#开始
+##安装
+1234567$ npm install --save sequelize# 执行以下操作之一$ npm install --save pg pg-hstore$ npm install --save mysql2$ npm i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sequelize系列教程1：入门和模型定义">
+<meta property="og:url" content="http://yoursite.com/2016/10/05/sequelize系列教程1：入门和模型定义/index.html">
+<meta property="og:site_name" content="qiushijie blog">
+<meta property="og:description" content="sequelize是一款node.js下最受欢迎的orm框架，支持mysql、PostgreSQL、sqlite等关系型数据库。详细使用请查看官方文档。
+#开始
+##安装
+1234567$ npm install --save sequelize# 执行以下操作之一$ npm install --save pg pg-hstore$ npm install --save mysql2$ npm i">
+<meta property="og:updated_time" content="2016-10-05T13:24:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sequelize系列教程1：入门和模型定义">
+<meta name="twitter:description" content="sequelize是一款node.js下最受欢迎的orm框架，支持mysql、PostgreSQL、sqlite等关系型数据库。详细使用请查看官方文档。
+#开始
+##安装
+1234567$ npm install --save sequelize# 执行以下操作之一$ npm install --save pg pg-hstore$ npm install --save mysql2$ npm i">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/05/sequelize系列教程1：入门和模型定义/"/>
+
+  <title> sequelize系列教程1：入门和模型定义 | qiushijie blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">qiushijie blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                sequelize系列教程1：入门和模型定义
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-05T20:46:07+08:00" content="2016-10-05">
+              2016-10-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://github.com/sequelize/sequelize" target="_blank" rel="external">sequelize</a>是一款node.js下最受欢迎的orm框架，支持mysql、PostgreSQL、sqlite等关系型数据库。详细使用请查看<a href="http://docs.sequelizejs.com/en/latest/" target="_blank" rel="external">官方文档</a>。</p>
+<p>#开始</p>
+<p>##安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ npm install --save sequelize</div><div class="line"></div><div class="line"># 执行以下操作之一</div><div class="line">$ npm install --save pg pg-hstore</div><div class="line">$ npm install --save mysql2</div><div class="line">$ npm install --save sqlite3</div><div class="line">$ npm install --save tedious // MSSQL</div></pre></td></tr></table></figure>
+<p>##连接<br>以下以mysql为示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import Sequelize from &apos;sequelize&apos;;</div><div class="line"></div><div class="line">let sequelize = new Sequelize(</div><div class="line">            database,</div><div class="line">            root,</div><div class="line">            &apos;password&apos;, &#123;</div><div class="line">            host: &apos;localhost&apos;,</div><div class="line">            dialect : &apos;mysql&apos;,</div><div class="line">            dialectOptions : &#123;</div><div class="line">                charset : &apos;utf8_general_ci&apos;</div><div class="line">            &#125;,</div><div class="line">            port : 3306,</div><div class="line">            pool: &#123;</div><div class="line">                max : 20,</div><div class="line">                min : 1,</div><div class="line">               idle : 10000</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        try &#123;</div><div class="line">            await sequelize.authenticate();</div><div class="line">            console.log(&apos;Connection has been established successfully.&apos;);</div><div class="line">        &#125; catch (err) &#123;</div><div class="line">            console.log(&apos;Unable to connect to the database:&apos;, err);</div><div class="line">            throw err;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>#model</p>
+<p>##定义示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let UserModel = sequelize.define(&apos;user&apos;, &#123;</div><div class="line">	userId : &#123;</div><div class="line">		type : Sequelize.INTEGER,</div><div class="line">		primaryKey : true,</div><div class="line">		autoIncrement : true</div><div class="line">	&#125;,</div><div class="line">	username : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;,</div><div class="line">	email : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>##类型</p>
+<table>
+<thead>
+<tr>
+<th>JavaScript</th>
+<th style="text-align:center">Sequelize</th>
+<th style="text-align:right">Database</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.INTEGER</td>
+<td style="text-align:right">int</td>
+</tr>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.BIGINT</td>
+<td style="text-align:right">bigint</td>
+</tr>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.FLOAT</td>
+<td style="text-align:right">float</td>
+</tr>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.DOUBLE</td>
+<td style="text-align:right">double</td>
+</tr>
+<tr>
+<td>Date</td>
+<td style="text-align:center">Sequelize.DATE</td>
+<td style="text-align:right">datetime</td>
+</tr>
+<tr>
+<td>bool</td>
+<td style="text-align:center">Sequelize.BOOL</td>
+<td style="text-align:right">tinyint(1)</td>
+</tr>
+<tr>
+<td>string</td>
+<td style="text-align:center">Sequelize.STRING</td>
+<td style="text-align:right">varchar</td>
+</tr>
+<tr>
+<td>string</td>
+<td style="text-align:center">Sequelize.TEXT</td>
+<td style="text-align:right">text</td>
+</tr>
+</tbody>
+</table>
+<p>##主键<br>定义组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">primaryKey : true</div></pre></td></tr></table></figure>
+<p>定义为自增</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">type : Sequelize.INTEGER,</div><div class="line">autoIncrement : true</div></pre></td></tr></table></figure>
+<p>定义为uuid</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type : Sequelize.UUID</div></pre></td></tr></table></figure>
+<p>#查询示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let users = await UserModel.findAll();</div><div class="line">console.log(users);</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sequelize/" rel="tag">#sequelize</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/05/sequelize-auto-migration/" rel="next" title="sequelize auto migration">
+                <i class="fa fa-chevron-left"></i> sequelize auto migration
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="qiushijie" />
+          <p class="site-author-name" itemprop="name">qiushijie</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiushijie</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

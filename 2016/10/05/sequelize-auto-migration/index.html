@@ -94,7 +94,7 @@
 <meta property="og:description" content="sequelize中提供了migration工具，但是每一次schema更改后需要手写相应的migration来更改。对于特定的需求来说需要一个不是这么安全的自动升级方案，自己折腾了一番后写了一个辅助工具来根据sequelize model定义来自动升级数据库schema。
 代码如下：
 12345678910111213141516171819202122232425262728293031323">
-<meta property="og:updated_time" content="2016-10-05T12:19:20.000Z">
+<meta property="og:updated_time" content="2016-10-05T12:38:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sequelize auto migration">
 <meta name="twitter:description" content="sequelize中提供了migration工具，但是每一次schema更改后需要手写相应的migration来更改。对于特定的需求来说需要一个不是这么安全的自动升级方案，自己折腾了一番后写了一个辅助工具来根据sequelize model定义来自动升级数据库schema。
@@ -180,7 +180,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -190,7 +190,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -253,12 +253,31 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-10-05T20:12:00+08:00" content="2016-10-05">
               2016-10-05
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -314,6 +333,20 @@
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/05/sequelize系列教程1：入门和模型定义/" rel="prev" title="sequelize系列教程1：入门和模型定义">
+                sequelize系列教程1：入门和模型定义 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
       
@@ -358,10 +391,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -377,18 +410,25 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -416,7 +456,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
             
           </div>
         </section>
@@ -443,7 +483,7 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

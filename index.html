@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -235,6 +235,186 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/05/sequelize系列教程1：入门和模型定义/" itemprop="url">
+                  sequelize系列教程1：入门和模型定义
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-05T20:46:07+08:00" content="2016-10-05">
+              2016-10-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://github.com/sequelize/sequelize" target="_blank" rel="external">sequelize</a>是一款node.js下最受欢迎的orm框架，支持mysql、PostgreSQL、sqlite等关系型数据库。详细使用请查看<a href="http://docs.sequelizejs.com/en/latest/" target="_blank" rel="external">官方文档</a>。</p>
+<p>#开始</p>
+<p>##安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ npm install --save sequelize</div><div class="line"></div><div class="line"># 执行以下操作之一</div><div class="line">$ npm install --save pg pg-hstore</div><div class="line">$ npm install --save mysql2</div><div class="line">$ npm install --save sqlite3</div><div class="line">$ npm install --save tedious // MSSQL</div></pre></td></tr></table></figure>
+<p>##连接<br>以下以mysql为示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import Sequelize from &apos;sequelize&apos;;</div><div class="line"></div><div class="line">let sequelize = new Sequelize(</div><div class="line">            database,</div><div class="line">            root,</div><div class="line">            &apos;password&apos;, &#123;</div><div class="line">            host: &apos;localhost&apos;,</div><div class="line">            dialect : &apos;mysql&apos;,</div><div class="line">            dialectOptions : &#123;</div><div class="line">                charset : &apos;utf8_general_ci&apos;</div><div class="line">            &#125;,</div><div class="line">            port : 3306,</div><div class="line">            pool: &#123;</div><div class="line">                max : 20,</div><div class="line">                min : 1,</div><div class="line">               idle : 10000</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        try &#123;</div><div class="line">            await sequelize.authenticate();</div><div class="line">            console.log(&apos;Connection has been established successfully.&apos;);</div><div class="line">        &#125; catch (err) &#123;</div><div class="line">            console.log(&apos;Unable to connect to the database:&apos;, err);</div><div class="line">            throw err;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>#model</p>
+<p>##定义示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let UserModel = sequelize.define(&apos;user&apos;, &#123;</div><div class="line">	userId : &#123;</div><div class="line">		type : Sequelize.INTEGER,</div><div class="line">		primaryKey : true,</div><div class="line">		autoIncrement : true</div><div class="line">	&#125;,</div><div class="line">	username : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;,</div><div class="line">	email : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>##类型</p>
+<table>
+<thead>
+<tr>
+<th>JavaScript</th>
+<th style="text-align:center">Sequelize</th>
+<th style="text-align:right">Database</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.INTEGER</td>
+<td style="text-align:right">int</td>
+</tr>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.BIGINT</td>
+<td style="text-align:right">bigint</td>
+</tr>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.FLOAT</td>
+<td style="text-align:right">float</td>
+</tr>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.DOUBLE</td>
+<td style="text-align:right">double</td>
+</tr>
+<tr>
+<td>Date</td>
+<td style="text-align:center">Sequelize.DATE</td>
+<td style="text-align:right">datetime</td>
+</tr>
+<tr>
+<td>bool</td>
+<td style="text-align:center">Sequelize.BOOL</td>
+<td style="text-align:right">tinyint(1)</td>
+</tr>
+<tr>
+<td>string</td>
+<td style="text-align:center">Sequelize.STRING</td>
+<td style="text-align:right">varchar</td>
+</tr>
+<tr>
+<td>string</td>
+<td style="text-align:center">Sequelize.TEXT</td>
+<td style="text-align:right">text</td>
+</tr>
+</tbody>
+</table>
+<p>##主键<br>定义组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">primaryKey : true</div></pre></td></tr></table></figure>
+<p>定义为自增</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">type : Sequelize.INTEGER,</div><div class="line">autoIncrement : true</div></pre></td></tr></table></figure>
+<p>定义为uuid</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type : Sequelize.UUID</div></pre></td></tr></table></figure>
+<p>#查询示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let users = await UserModel.findAll();</div><div class="line">console.log(users);</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/05/sequelize-auto-migration/" itemprop="url">
                   sequelize auto migration
                 </a>
@@ -248,12 +428,31 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-10-05T20:12:00+08:00" content="2016-10-05">
               2016-10-05
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -352,18 +551,25 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -407,7 +613,7 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
