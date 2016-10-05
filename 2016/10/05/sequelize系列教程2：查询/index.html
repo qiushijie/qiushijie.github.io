@@ -84,13 +84,28 @@
 
 
 
+<meta name="description" content="#属性
+要选择只有一些属性，可以使用属性(attributes)选项
+1234//select username, email from user ...let users = UserModel.findAll(&amp;#123;	attributes : [&amp;apos;username&amp;apos;, &amp;apos;email&amp;apos;]&amp;#125;);
+##使用别名
+1234//select ema">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sequelize系列教程2：查询">
 <meta property="og:url" content="http://yoursite.com/2016/10/05/sequelize系列教程2：查询/index.html">
 <meta property="og:site_name" content="qiushijie blog">
-<meta property="og:updated_time" content="2016-10-05T13:28:26.000Z">
+<meta property="og:description" content="#属性
+要选择只有一些属性，可以使用属性(attributes)选项
+1234//select username, email from user ...let users = UserModel.findAll(&amp;#123;	attributes : [&amp;apos;username&amp;apos;, &amp;apos;email&amp;apos;]&amp;#125;);
+##使用别名
+1234//select ema">
+<meta property="og:updated_time" content="2016-10-05T14:24:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sequelize系列教程2：查询">
+<meta name="twitter:description" content="#属性
+要选择只有一些属性，可以使用属性(attributes)选项
+1234//select username, email from user ...let users = UserModel.findAll(&amp;#123;	attributes : [&amp;apos;username&amp;apos;, &amp;apos;email&amp;apos;]&amp;#125;);
+##使用别名
+1234//select ema">
 
 
 
@@ -292,7 +307,20 @@
       
 
       
-        
+        <p>#属性</p>
+<p>要选择只有一些属性，可以使用属性(attributes)选项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//select username, email from user ...</div><div class="line">let users = UserModel.findAll(&#123;</div><div class="line">	attributes : [&apos;username&apos;, &apos;email&apos;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>##使用别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//select email, username as name from user ...</div><div class="line">UserModel.findAll(&#123;</div><div class="line">  attributes: [&apos;email&apos;, [&apos;username&apos;, &apos;name&apos;]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>#函数</p>
+<p>使用函数可以使用sequelize.fn</p>
+<p>##count</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//select COUNT(userId) from user</div><div class="line">let count = await UserModel.findOne(&#123;</div><div class="line">  attributes: [[sequelize.fn(&apos;COUNT&apos;, sequelize.col(&apos;userId&apos;))]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>##max</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//获取登陆最多的用户的登陆次数</div><div class="line">//select max(loginTimes) from user</div><div class="line">let max = UserModel.findOne(&#123;</div><div class="line">	attributes : [[sequelize.fn(&apos;MAX&apos;, sequelize.col(&apos;loginTimes))]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>##min</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//获取登陆最少的用户的登陆次数</div><div class="line">//select max(loginTimes) from user</div><div class="line">let max = UserModel.findOne(&#123;</div><div class="line">	attributes : [[sequelize.fn(&apos;MIN&apos;, sequelize.col(&apos;loginTimes))]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
       
     </div>
 
