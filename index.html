@@ -235,6 +235,118 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/05/sequelize系列教程2：查询/" itemprop="url">
+                  sequelize系列教程2：查询
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-05T21:26:51+08:00" content="2016-10-05">
+              2016-10-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/05/sequelize系列教程1：入门和模型定义/" itemprop="url">
                   sequelize系列教程1：入门和模型定义
                 </a>
@@ -365,8 +477,21 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">type : Sequelize.INTEGER,</div><div class="line">autoIncrement : true</div></pre></td></tr></table></figure>
 <p>定义为uuid</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type : Sequelize.UUID</div></pre></td></tr></table></figure>
-<p>#查询示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let users = await UserModel.findAll();</div><div class="line">console.log(users);</div></pre></td></tr></table></figure>
+<p>#模型使用</p>
+<p>##find<br>find by id</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let user = await UserModel.findById(1);</div><div class="line">console.log(user);</div></pre></td></tr></table></figure>
+<p>查找单个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//根据邮箱和密码查找一个用户</div><div class="line">let user = await UserModel.findOne(&#123;</div><div class="line">	where : &#123;</div><div class="line">		$and : [</div><div class="line">			&#123;email : xxx@xxx.com&#125;,</div><div class="line">			&#123;password : xxx&#125;</div><div class="line">		]</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>新建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let user = await UserModel.create(&#123;</div><div class="line">	username : &apos;xxx&apos;,</div><div class="line">	email : &apos;xxx@xxx.com&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>查找所有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//查找状态为true的users</div><div class="line">let users = await UserModel.findAll(&#123;</div><div class="line">	where : &#123;</div><div class="line">		status : true</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>where</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$and: &#123;a: 5&#125;           // AND (a = 5)</div><div class="line">$and: [&#123;a: 5&#125;, &#123;a: 6&#125;] // (a = 6) AND (a = 6)</div><div class="line">$or: [&#123;a: 5&#125;, &#123;a: 6&#125;]  // (a = 5 OR a = 6)</div><div class="line">$gt: 6,                // id &gt; 6</div><div class="line">$gte: 6,               // id &gt;= 6</div><div class="line">$lt: 10,               // id &lt; 10</div><div class="line">$lte: 10,              // id &lt;= 10</div><div class="line">$ne: 20,               // id != 20</div><div class="line">$between: [6, 10],     // BETWEEN 6 AND 10</div><div class="line">$notBetween: [11, 15], // NOT BETWEEN 11 AND 15</div><div class="line">$in: [1, 2],           // IN [1, 2]</div><div class="line">$notIn: [1, 2],        // NOT IN [1, 2]</div><div class="line">$like: &apos;%hat&apos;,         // LIKE &apos;%hat&apos;</div><div class="line">$notLike: &apos;%hat&apos;       // NOT LIKE &apos;%hat&apos;</div><div class="line">$notILike: &apos;%hat&apos;      // NOT ILIKE &apos;%hat&apos;  (PG only)</div><div class="line">$not: false,           // status NOT FALSE</div></pre></td></tr></table></figure>
+<p>分页排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">limit: 10              //获取10个</div><div class="line">offset: 10             //从第10个开始</div><div class="line">order: &apos;updateAt DESC&apos; //根据更改时间降序</div></pre></td></tr></table></figure>
+<p>##原生查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserModel.findAll(&#123; where: &#123; ... &#125;, raw: true &#125;)</div></pre></td></tr></table></figure>
           
         
       
@@ -551,7 +676,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
