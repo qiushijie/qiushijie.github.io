@@ -84,13 +84,28 @@
 
 
 
+<meta name="description" content="词法antlr使用的定义规则与正则表达式类似，掌握起来不难
+注释单行1// 单行注释
+多行123/*** 多行注释*/
+标识符标识符名字以一个大写字母开头，例如Name : [a-z]+;。标识符表示一个词法单元，其匹配规则的优先级是从上往下，上面的标识符被匹配到了，下面的就不会被匹配。
+字面量包含在语法中的字符称为字面量，例如exp : &amp;#39;if&amp;#39;，这里的if就是一个字面量，字面量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="antlr系列教程2：词法和文法定义">
+<meta property="og:title" content="antlr系列教程2：词法和语法定义">
 <meta property="og:url" content="http://yoursite.com/2016/10/06/antlr系列教程2：词法和文法定义/index.html">
 <meta property="og:site_name" content="qiushijie blog">
-<meta property="og:updated_time" content="2016-10-06T07:46:40.000Z">
+<meta property="og:description" content="词法antlr使用的定义规则与正则表达式类似，掌握起来不难
+注释单行1// 单行注释
+多行123/*** 多行注释*/
+标识符标识符名字以一个大写字母开头，例如Name : [a-z]+;。标识符表示一个词法单元，其匹配规则的优先级是从上往下，上面的标识符被匹配到了，下面的就不会被匹配。
+字面量包含在语法中的字符称为字面量，例如exp : &amp;#39;if&amp;#39;，这里的if就是一个字面量，字面量">
+<meta property="og:updated_time" content="2016-10-06T08:12:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="antlr系列教程2：词法和文法定义">
+<meta name="twitter:title" content="antlr系列教程2：词法和语法定义">
+<meta name="twitter:description" content="词法antlr使用的定义规则与正则表达式类似，掌握起来不难
+注释单行1// 单行注释
+多行123/*** 多行注释*/
+标识符标识符名字以一个大写字母开头，例如Name : [a-z]+;。标识符表示一个词法单元，其匹配规则的优先级是从上往下，上面的标识符被匹配到了，下面的就不会被匹配。
+字面量包含在语法中的字符称为字面量，例如exp : &amp;#39;if&amp;#39;，这里的if就是一个字面量，字面量">
 
 
 
@@ -113,7 +128,7 @@
 
   <link rel="canonical" href="http://yoursite.com/2016/10/06/antlr系列教程2：词法和文法定义/"/>
 
-  <title> antlr系列教程2：词法和文法定义 | qiushijie blog </title>
+  <title> antlr系列教程2：词法和语法定义 | qiushijie blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +268,7 @@
             
             
               
-                antlr系列教程2：词法和文法定义
+                antlr系列教程2：词法和语法定义
               
             
           </h1>
@@ -319,7 +334,22 @@
       
 
       
-        
+        <h1 id="词法"><a href="#词法" class="headerlink" title="词法"></a>词法</h1><p>antlr使用的定义规则与正则表达式类似，掌握起来不难</p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="单行"><a href="#单行" class="headerlink" title="单行"></a>单行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">// 单行注释</div></pre></td></tr></table></figure>
+<h3 id="多行"><a href="#多行" class="headerlink" title="多行"></a>多行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* 多行注释</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>标识符名字以一个大写字母开头，例如<code>Name : [a-z]+;</code>。标识符表示一个词法单元，其匹配规则的优先级是从上往下，上面的标识符被匹配到了，下面的就不会被匹配。</p>
+<h2 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h2><p>包含在语法中的字符称为字面量，例如<code>exp : &#39;if&#39;</code>，这里的if就是一个字面量，字面量不包含正则表达式。</p>
+<h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><p>不要使用这些关键词作为语法的名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import, fragment, lexer, parser, grammar, returns,</div><div class="line">locals, throws, catch, finally, mode, options, tokens</div></pre></td></tr></table></figure>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><p>语法由语法的声明和它的规则列表组成，一般形式如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/** Optional javadoc style comment */</div><div class="line">grammar Name;</div><div class="line">options &#123;...&#125;</div><div class="line">import ... ;</div><div class="line"></div><div class="line">tokens &#123;...&#125;</div><div class="line">channels &#123;...&#125; // lexer only</div><div class="line">@actionName &#123;...&#125;</div><div class="line"></div><div class="line">rule1</div><div class="line">...</div><div class="line">ruleN</div></pre></td></tr></table></figure>
+<p>grammar名字必须与文件名一致，例如文件名为Hello.g4，那么grammar名字就应该是Hello。</p>
+<p>语法声明的首字母必须是小写的，而词法声明的首字母必须是大写的。</p>
+<p>如果语法和词法变得复杂的情况下，将语法和词法文件分离开来定义也是可以的，在分离的词法定义文件中可以使用mode等功能</p>
+<p>语法定义文件头部以parser开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">parser grammar Name;</div></pre></td></tr></table></figure>
+<p>词法定义文件的头部以lexer开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lexer grammar Name;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -376,7 +406,7 @@
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2016/10/06/antlr系列教程2：词法和文法定义/"
-     data-title="antlr系列教程2：词法和文法定义"
+     data-title="antlr系列教程2：词法和语法定义"
      data-content=""
      data-url="http://yoursite.com/2016/10/06/antlr系列教程2：词法和文法定义/">
   <div class="ds-share-inline">
@@ -406,7 +436,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/10/06/antlr系列教程2：词法和文法定义/"
-           data-title="antlr系列教程2：词法和文法定义" data-url="http://yoursite.com/2016/10/06/antlr系列教程2：词法和文法定义/">
+           data-title="antlr系列教程2：词法和语法定义" data-url="http://yoursite.com/2016/10/06/antlr系列教程2：词法和文法定义/">
       </div>
     
   </div>
@@ -497,7 +527,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#词法"><span class="nav-number">1.</span> <span class="nav-text">词法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">1.1.</span> <span class="nav-text">注释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单行"><span class="nav-number">1.1.1.</span> <span class="nav-text">单行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多行"><span class="nav-number">1.1.2.</span> <span class="nav-text">多行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">1.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字面量"><span class="nav-number">1.3.</span> <span class="nav-text">字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键词"><span class="nav-number">1.4.</span> <span class="nav-text">关键词</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a></li></ol></div>
             
           </div>
         </section>
