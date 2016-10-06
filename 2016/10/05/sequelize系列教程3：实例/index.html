@@ -84,31 +84,22 @@
 
 
 
-<meta name="description" content="#buildbuild创建一个未保存的实例(instances)
-1234let user = UserModel.build(&amp;#123;	username : &amp;apos;xxx&amp;apos;,	email : &amp;apos;xxx@xxx.com&amp;apos;&amp;#125;);
-保存
-1await user.save();
-#create创建一个持久化实例
-1234let user = await">
+<meta name="description" content="buildbuild创建一个未保存的实例(instances)1234let user = UserModel.build(&amp;#123;	username : &amp;apos;xxx&amp;apos;,	email : &amp;apos;xxx@xxx.com&amp;apos;&amp;#125;);
+保存1await user.save();
+create创建一个持久化实例1234let user = await UserM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sequelize系列教程3：实例">
 <meta property="og:url" content="http://yoursite.com/2016/10/05/sequelize系列教程3：实例/index.html">
 <meta property="og:site_name" content="qiushijie blog">
-<meta property="og:description" content="#buildbuild创建一个未保存的实例(instances)
-1234let user = UserModel.build(&amp;#123;	username : &amp;apos;xxx&amp;apos;,	email : &amp;apos;xxx@xxx.com&amp;apos;&amp;#125;);
-保存
-1await user.save();
-#create创建一个持久化实例
-1234let user = await">
-<meta property="og:updated_time" content="2016-10-05T14:43:49.000Z">
+<meta property="og:description" content="buildbuild创建一个未保存的实例(instances)1234let user = UserModel.build(&amp;#123;	username : &amp;apos;xxx&amp;apos;,	email : &amp;apos;xxx@xxx.com&amp;apos;&amp;#125;);
+保存1await user.save();
+create创建一个持久化实例1234let user = await UserM">
+<meta property="og:updated_time" content="2016-10-06T04:57:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sequelize系列教程3：实例">
-<meta name="twitter:description" content="#buildbuild创建一个未保存的实例(instances)
-1234let user = UserModel.build(&amp;#123;	username : &amp;apos;xxx&amp;apos;,	email : &amp;apos;xxx@xxx.com&amp;apos;&amp;#125;);
-保存
-1await user.save();
-#create创建一个持久化实例
-1234let user = await">
+<meta name="twitter:description" content="buildbuild创建一个未保存的实例(instances)1234let user = UserModel.build(&amp;#123;	username : &amp;apos;xxx&amp;apos;,	email : &amp;apos;xxx@xxx.com&amp;apos;&amp;#125;);
+保存1await user.save();
+create创建一个持久化实例1234let user = await UserM">
 
 
 
@@ -199,7 +190,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -209,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -219,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -282,7 +273,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-05T22:28:21+08:00" content="2016-10-05">
               2016-10-05
             </time>
@@ -294,7 +285,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/node-js/" itemprop="url" rel="index">
@@ -337,20 +328,13 @@
       
 
       
-        <p>#build<br>build创建一个未保存的实例(instances)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let user = UserModel.build(&#123;</div><div class="line">	username : &apos;xxx&apos;,</div><div class="line">	email : &apos;xxx@xxx.com&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>保存</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">await user.save();</div></pre></td></tr></table></figure>
-<p>#create<br>创建一个持久化实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let user = await UserModel.build(&#123;</div><div class="line">	username : &apos;xxx&apos;,</div><div class="line">	email : &apos;xxx@xxx.com&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>#update<br>更新一个持久化实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">await user.update(&#123;</div><div class="line">	username : &apos;xxxx&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>设定更新字段，不更新email，只更新username</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">await user.update(&#123;</div><div class="line">	username : &apos;xxxx&apos;</div><div class="line">	email : &apos;xxx@xxx.cn&apos;</div><div class="line">&#125;,&#123;</div><div class="line">	fields : [&apos;username&apos;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>#删除<br>删除一个持久化实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">await user.destroy();</div></pre></td></tr></table></figure>
-<p>使用where删除持久化实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">await UserModel.destroy(&#123;</div><div class="line">	where : ...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+        <h1 id="build"><a href="#build" class="headerlink" title="build"></a>build</h1><h2 id="build创建一个未保存的实例-instances"><a href="#build创建一个未保存的实例-instances" class="headerlink" title="build创建一个未保存的实例(instances)"></a>build创建一个未保存的实例(instances)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let user = UserModel.build(&#123;</div><div class="line">	username : &apos;xxx&apos;,</div><div class="line">	email : &apos;xxx@xxx.com&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">await user.save();</div></pre></td></tr></table></figure>
+<h1 id="create"><a href="#create" class="headerlink" title="create"></a>create</h1><h2 id="创建一个持久化实例"><a href="#创建一个持久化实例" class="headerlink" title="创建一个持久化实例"></a>创建一个持久化实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let user = await UserModel.build(&#123;</div><div class="line">	username : &apos;xxx&apos;,</div><div class="line">	email : &apos;xxx@xxx.com&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><h2 id="更新一个持久化实例"><a href="#更新一个持久化实例" class="headerlink" title="更新一个持久化实例"></a>更新一个持久化实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">await user.update(&#123;</div><div class="line">	username : &apos;xxxx&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="设定更新字段，不更新email，只更新username"><a href="#设定更新字段，不更新email，只更新username" class="headerlink" title="设定更新字段，不更新email，只更新username"></a>设定更新字段，不更新email，只更新username</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">await user.update(&#123;</div><div class="line">	username : &apos;xxxx&apos;</div><div class="line">	email : &apos;xxx@xxx.cn&apos;</div><div class="line">&#125;,&#123;</div><div class="line">	fields : [&apos;username&apos;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><h2 id="删除一个持久化实例"><a href="#删除一个持久化实例" class="headerlink" title="删除一个持久化实例"></a>删除一个持久化实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">await user.destroy();</div></pre></td></tr></table></figure>
+<h2 id="使用where删除持久化实例"><a href="#使用where删除持久化实例" class="headerlink" title="使用where删除持久化实例"></a>使用where删除持久化实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">await UserModel.destroy(&#123;</div><div class="line">	where : ...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -464,10 +448,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -484,7 +468,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">10</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -492,7 +476,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -501,7 +485,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -529,7 +513,7 @@
               
             
             
-              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#build"><span class="nav-number">1.</span> <span class="nav-text">build</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#build创建一个未保存的实例-instances"><span class="nav-number">1.1.</span> <span class="nav-text">build创建一个未保存的实例(instances)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存"><span class="nav-number">1.2.</span> <span class="nav-text">保存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#create"><span class="nav-number">2.</span> <span class="nav-text">create</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个持久化实例"><span class="nav-number">2.1.</span> <span class="nav-text">创建一个持久化实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#update"><span class="nav-number">3.</span> <span class="nav-text">update</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#更新一个持久化实例"><span class="nav-number">3.1.</span> <span class="nav-text">更新一个持久化实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设定更新字段，不更新email，只更新username"><span class="nav-number">3.2.</span> <span class="nav-text">设定更新字段，不更新email，只更新username</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除"><span class="nav-number">4.</span> <span class="nav-text">删除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除一个持久化实例"><span class="nav-number">4.1.</span> <span class="nav-text">删除一个持久化实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用where删除持久化实例"><span class="nav-number">4.2.</span> <span class="nav-text">使用where删除持久化实例</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -556,7 +540,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

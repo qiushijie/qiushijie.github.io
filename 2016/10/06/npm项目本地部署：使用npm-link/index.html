@@ -85,21 +85,18 @@
 
 
 <meta name="description" content="有的时候，我们开发的私有公共项目，其他项目需要引用，但是又不希望发布到npm仓库中（下一篇文章将介绍怎么搭建私有npm仓库），或者是该私有项目还需要不断的去调试，在其他项目中调用的过程中出现的问题能及时修复。这样的情况下，在本地直接依赖该私有项目是一个比较不错的解决方案。
-先进入到需要发布的项目目录，执行sudo npm link命令，该命令将项目link到全局的node_modules目录中
-进">
+安装先进入到需要发布的项目目录，执行sudo npm link命令，该命令将项目link到全局的node_modules目录中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="npm项目本地部署：使用npm link">
 <meta property="og:url" content="http://yoursite.com/2016/10/06/npm项目本地部署：使用npm-link/index.html">
 <meta property="og:site_name" content="qiushijie blog">
 <meta property="og:description" content="有的时候，我们开发的私有公共项目，其他项目需要引用，但是又不希望发布到npm仓库中（下一篇文章将介绍怎么搭建私有npm仓库），或者是该私有项目还需要不断的去调试，在其他项目中调用的过程中出现的问题能及时修复。这样的情况下，在本地直接依赖该私有项目是一个比较不错的解决方案。
-先进入到需要发布的项目目录，执行sudo npm link命令，该命令将项目link到全局的node_modules目录中
-进">
-<meta property="og:updated_time" content="2016-10-06T04:17:41.000Z">
+安装先进入到需要发布的项目目录，执行sudo npm link命令，该命令将项目link到全局的node_modules目录中">
+<meta property="og:updated_time" content="2016-10-06T04:55:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="npm项目本地部署：使用npm link">
 <meta name="twitter:description" content="有的时候，我们开发的私有公共项目，其他项目需要引用，但是又不希望发布到npm仓库中（下一篇文章将介绍怎么搭建私有npm仓库），或者是该私有项目还需要不断的去调试，在其他项目中调用的过程中出现的问题能及时修复。这样的情况下，在本地直接依赖该私有项目是一个比较不错的解决方案。
-先进入到需要发布的项目目录，执行sudo npm link命令，该命令将项目link到全局的node_modules目录中
-进">
+安装先进入到需要发布的项目目录，执行sudo npm link命令，该命令将项目link到全局的node_modules目录中">
 
 
 
@@ -190,7 +187,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -200,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -210,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -273,7 +270,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-06T12:08:50+08:00" content="2016-10-06">
               2016-10-06
             </time>
@@ -285,7 +282,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/node-js/" itemprop="url" rel="index">
@@ -329,9 +326,9 @@
 
       
         <p>有的时候，我们开发的私有公共项目，其他项目需要引用，但是又不希望发布到npm仓库中（下一篇文章将介绍怎么搭建私有npm仓库），或者是该私有项目还需要不断的去调试，在其他项目中调用的过程中出现的问题能及时修复。这样的情况下，在本地直接依赖该私有项目是一个比较不错的解决方案。</p>
-<p>先进入到需要发布的项目目录，执行sudo npm link命令，该命令将项目link到全局的node_modules目录中</p>
-<p>进入到需要引用该私有项目的目录中，执行npm link 私有项目名称即可</p>
-<p>接下来介绍一下另外一种情况，如果项目中使用了babel等工具对代码进行编译，我们直接在项目的根目录link会导致引用出现异常，因为这里的代码是还没有经过编译的。例如我们编译后的代码放在dist目录中，先将package.json等文件拷贝过去，最好是写成一个build命令，因为在发布的时候也会用到。然后进入dist目录，在dist目录下去执行sudo npm link即可。如果项目添加了新的依赖，需要重新进入到dist目录里面来运行sudo npm install命令。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>先进入到需要发布的项目目录，执行sudo npm link命令，该命令将项目link到全局的node_modules目录中</p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>进入到需要引用该私有项目的目录中，执行npm link 私有项目名称即可</p>
+<h1 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h1><p>接下来介绍一下另外一种情况，如果项目中使用了babel等工具对代码进行编译，我们直接在项目的根目录link会导致引用出现异常，因为这里的代码是还没有经过编译的。例如我们编译后的代码放在dist目录中，先将package.json等文件拷贝过去，最好是写成一个build命令，因为在发布的时候也会用到。然后进入dist目录，在dist目录下去执行sudo npm link即可。如果项目添加了新的依赖，需要重新进入到dist目录里面来运行sudo npm install命令。</p>
 
       
     </div>
@@ -445,10 +442,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -465,7 +462,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">10</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -473,7 +470,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -482,7 +479,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -510,7 +507,7 @@
               
             
             
-              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用"><span class="nav-number">2.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译安装"><span class="nav-number">3.</span> <span class="nav-text">编译安装</span></a></li></ol></div>
             
           </div>
         </section>
@@ -537,7 +534,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
