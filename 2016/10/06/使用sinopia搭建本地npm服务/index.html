@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="sequelize," />
+  <meta name="keywords" content="npm," />
 
 
 
@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="sequelize提供了事务支持，使用起来也非常的简单和方便，相比较于mongodb，使用关系型数据库很多时候是出于事务支持的考虑。本篇中只介绍一种自动事务管理的方法，也是最为使用的一种，其他更多请查阅sequelize事务
-自动事务管理需要使用continuation-local-storage来实现，所以需要额外安装continuation-local-storage
-123456import">
+<meta name="description" content="自己搭建npm服务相当于搭建一个npm的私服一样，可以发布一些内部的私有项目到上面。一般来说私有项目的安装有几种方式，第一是使用npm link来安装在本地，然后引用，这种方式的问题是安装起来会比较麻烦，每一个人都需要在他的电脑上按照依赖关系link一遍。第二是使用git仓库来安装，使用git仓库安装版本方面管理比较麻烦。第三个就是自己搭建npm服务，然后发布到npm服务上，其他人还是像之前使用n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sequelize系列教程5：事务.md">
-<meta property="og:url" content="http://yoursite.com/2016/10/06/sequelize系列教程5：事务-md/index.html">
+<meta property="og:title" content="使用sinopia搭建本地npm服务">
+<meta property="og:url" content="http://yoursite.com/2016/10/06/使用sinopia搭建本地npm服务/index.html">
 <meta property="og:site_name" content="qiushijie blog">
-<meta property="og:description" content="sequelize提供了事务支持，使用起来也非常的简单和方便，相比较于mongodb，使用关系型数据库很多时候是出于事务支持的考虑。本篇中只介绍一种自动事务管理的方法，也是最为使用的一种，其他更多请查阅sequelize事务
-自动事务管理需要使用continuation-local-storage来实现，所以需要额外安装continuation-local-storage
-123456import">
-<meta property="og:updated_time" content="2016-10-06T01:45:01.000Z">
+<meta property="og:description" content="自己搭建npm服务相当于搭建一个npm的私服一样，可以发布一些内部的私有项目到上面。一般来说私有项目的安装有几种方式，第一是使用npm link来安装在本地，然后引用，这种方式的问题是安装起来会比较麻烦，每一个人都需要在他的电脑上按照依赖关系link一遍。第二是使用git仓库来安装，使用git仓库安装版本方面管理比较麻烦。第三个就是自己搭建npm服务，然后发布到npm服务上，其他人还是像之前使用n">
+<meta property="og:updated_time" content="2016-10-06T04:33:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sequelize系列教程5：事务.md">
-<meta name="twitter:description" content="sequelize提供了事务支持，使用起来也非常的简单和方便，相比较于mongodb，使用关系型数据库很多时候是出于事务支持的考虑。本篇中只介绍一种自动事务管理的方法，也是最为使用的一种，其他更多请查阅sequelize事务
-自动事务管理需要使用continuation-local-storage来实现，所以需要额外安装continuation-local-storage
-123456import">
+<meta name="twitter:title" content="使用sinopia搭建本地npm服务">
+<meta name="twitter:description" content="自己搭建npm服务相当于搭建一个npm的私服一样，可以发布一些内部的私有项目到上面。一般来说私有项目的安装有几种方式，第一是使用npm link来安装在本地，然后引用，这种方式的问题是安装起来会比较麻烦，每一个人都需要在他的电脑上按照依赖关系link一遍。第二是使用git仓库来安装，使用git仓库安装版本方面管理比较麻烦。第三个就是自己搭建npm服务，然后发布到npm服务上，其他人还是像之前使用n">
 
 
 
@@ -120,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/06/sequelize系列教程5：事务-md/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/06/使用sinopia搭建本地npm服务/"/>
 
-  <title> sequelize系列教程5：事务.md | qiushijie blog </title>
+  <title> 使用sinopia搭建本地npm服务 | qiushijie blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -262,7 +256,7 @@
             
             
               
-                sequelize系列教程5：事务.md
+                使用sinopia搭建本地npm服务
               
             
           </h1>
@@ -274,7 +268,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-10-06T00:38:46+08:00" content="2016-10-06">
+            <time itemprop="dateCreated" datetime="2016-10-06T12:19:30+08:00" content="2016-10-06">
               2016-10-06
             </time>
           </span>
@@ -304,8 +298,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/06/sequelize系列教程5：事务-md/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/06/sequelize系列教程5：事务-md/" itemprop="commentsCount"></span>
+                <a href="/2016/10/06/使用sinopia搭建本地npm服务/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/06/使用sinopia搭建本地npm服务/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -328,11 +322,28 @@
       
 
       
-        <p>sequelize提供了事务支持，使用起来也非常的简单和方便，相比较于mongodb，使用关系型数据库很多时候是出于事务支持的考虑。本篇中只介绍一种自动事务管理的方法，也是最为使用的一种，其他更多请查阅<a href="http://docs.sequelizejs.com/en/latest/docs/transactions/" target="_blank" rel="external">sequelize事务</a></p>
-<p>自动事务管理需要使用continuation-local-storage来实现，所以需要额外安装continuation-local-storage</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import Sequelize from &apos;sequelize&apos;;</div><div class="line">import cls from &apos;continuation-local-storage&apos;;</div><div class="line"></div><div class="line">namespace = cls.createNamespace(&apos;my-very-own-namespace&apos;);</div><div class="line">//在初始化之前使用</div><div class="line">Sequelize.useCLS(namespace);</div></pre></td></tr></table></figure>
-<p>执行事务，如果发生错误自动回滚，执行完成自动提交</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sequelize.transaction(async (t) =&gt; &#123;</div><div class="line">    try &#123;</div><div class="line">        ...</div><div class="line">    &#125; catch(err) &#123;</div><div class="line">        throw err;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>自己搭建npm服务相当于搭建一个npm的私服一样，可以发布一些内部的私有项目到上面。一般来说私有项目的安装有几种方式，第一是使用npm link来安装在本地，然后引用，这种方式的问题是安装起来会比较麻烦，每一个人都需要在他的电脑上按照依赖关系link一遍。第二是使用git仓库来安装，使用git仓库安装版本方面管理比较麻烦。第三个就是自己搭建npm服务，然后发布到npm服务上，其他人还是像之前使用npm一样进行安装。</p>
+<p><a href="https://github.com/rlidwka/sinopia" target="_blank" rel="external">sinopia</a>是一个非常简单的npm服务搭建工具，没有其他的依赖和过多的配置项目，安装后马上可以使用。</p>
+<p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g sinopia</div></pre></td></tr></table></figure>
+<p>启动sinopia</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sinopia</div></pre></td></tr></table></figure>
+<p>如果需要给别人使用，需要这样启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sinopia -l ip地址</div></pre></td></tr></table></figure>
+<p>推荐使用nrm来管理npm仓库地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g nrm</div></pre></td></tr></table></figure>
+<p>添加仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm add &lt;仓库名&gt; &lt;ip地址&gt;</div></pre></td></tr></table></figure>
+<p>列出仓库列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm ls</div></pre></td></tr></table></figure>
+<p>使用仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use &lt;仓库名&gt;</div></pre></td></tr></table></figure>
+<p>添加用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm adduser --registry &lt;ip地址&gt;</div></pre></td></tr></table></figure>
+<p>发布到私有npm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm publish</div></pre></td></tr></table></figure>
+<p>不升级版本号强制发布</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm publish --force</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -354,7 +365,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/sequelize/" rel="tag">#sequelize</a>
+            <a href="/tags/npm/" rel="tag">#npm</a>
           
         </div>
       
@@ -363,17 +374,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/05/sequelize系列教程4：关系/" rel="next" title="sequelize系列教程4：关系">
-                <i class="fa fa-chevron-left"></i> sequelize系列教程4：关系
+              <a href="/2016/10/06/npm项目本地部署：使用npm-link/" rel="next" title="npm项目本地部署：使用npm link">
+                <i class="fa fa-chevron-left"></i> npm项目本地部署：使用npm link
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/06/ES7-async-await异步编程/" rel="prev" title="ES7 async/await异步编程">
-                ES7 async/await异步编程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -388,10 +395,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/06/sequelize系列教程5：事务-md/"
-     data-title="sequelize系列教程5：事务.md"
+        <div class="ds-share flat" data-thread-key="2016/10/06/使用sinopia搭建本地npm服务/"
+     data-title="使用sinopia搭建本地npm服务"
      data-content=""
-     data-url="http://yoursite.com/2016/10/06/sequelize系列教程5：事务-md/">
+     data-url="http://yoursite.com/2016/10/06/使用sinopia搭建本地npm服务/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -418,8 +425,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/06/sequelize系列教程5：事务-md/"
-           data-title="sequelize系列教程5：事务.md" data-url="http://yoursite.com/2016/10/06/sequelize系列教程5：事务-md/">
+      <div class="ds-thread" data-thread-key="2016/10/06/使用sinopia搭建本地npm服务/"
+           data-title="使用sinopia搭建本地npm服务" data-url="http://yoursite.com/2016/10/06/使用sinopia搭建本地npm服务/">
       </div>
     
   </div>
