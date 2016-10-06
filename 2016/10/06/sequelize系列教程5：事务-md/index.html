@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="sequelize," />
 
 
 
@@ -84,12 +84,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="qiushijie blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="sequelize提供了事务支持，使用起来也非常的简单和方便，相比较于mongodb，使用关系型数据库很多时候是出于事务支持的考虑。本篇中只介绍一种自动事务管理的方法，也是最为使用的一种，其他更多请查阅sequelize事务
+自动事务管理需要使用continuation-local-storage来实现，所以需要额外安装continuation-local-storage
+123456import">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sequelize系列教程5：事务.md">
+<meta property="og:url" content="http://yoursite.com/2016/10/06/sequelize系列教程5：事务-md/index.html">
 <meta property="og:site_name" content="qiushijie blog">
+<meta property="og:description" content="sequelize提供了事务支持，使用起来也非常的简单和方便，相比较于mongodb，使用关系型数据库很多时候是出于事务支持的考虑。本篇中只介绍一种自动事务管理的方法，也是最为使用的一种，其他更多请查阅sequelize事务
+自动事务管理需要使用continuation-local-storage来实现，所以需要额外安装continuation-local-storage
+123456import">
+<meta property="og:updated_time" content="2016-10-06T01:45:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qiushijie blog">
+<meta name="twitter:title" content="sequelize系列教程5：事务.md">
+<meta name="twitter:description" content="sequelize提供了事务支持，使用起来也非常的简单和方便，相比较于mongodb，使用关系型数据库很多时候是出于事务支持的考虑。本篇中只介绍一种自动事务管理的方法，也是最为使用的一种，其他更多请查阅sequelize事务
+自动事务管理需要使用continuation-local-storage来实现，所以需要额外安装continuation-local-storage
+123456import">
 
 
 
@@ -110,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/06/sequelize系列教程5：事务-md/"/>
 
-  <title> Archive | qiushijie blog </title>
+  <title> sequelize系列教程5：事务.md | qiushijie blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -133,7 +143,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -211,251 +221,144 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 6 posts in total. Keep on posting.
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/06/sequelize系列教程5：事务-md/" itemprop="url">
-              
-                <span itemprop="name">sequelize系列教程5：事务.md</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-06T00:38:46+08:00"
-              content="2016-10-06" >
-          10-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/05/sequelize系列教程4：关系/" itemprop="url">
-              
-                <span itemprop="name">sequelize系列教程4：关系</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-05T22:45:28+08:00"
-              content="2016-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/05/sequelize系列教程3：实例/" itemprop="url">
-              
-                <span itemprop="name">sequelize系列教程3：实例</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-05T22:28:21+08:00"
-              content="2016-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/05/sequelize系列教程2：查询/" itemprop="url">
-              
-                <span itemprop="name">sequelize系列教程2：查询</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-05T21:26:51+08:00"
-              content="2016-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/05/sequelize系列教程1：入门和模型定义/" itemprop="url">
-              
-                <span itemprop="name">sequelize系列教程1：入门和模型定义</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-05T20:46:07+08:00"
-              content="2016-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/05/sequelize-auto-migration/" itemprop="url">
-              
-                <span itemprop="name">sequelize auto migration</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-05T20:12:00+08:00"
-              content="2016-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                sequelize系列教程5：事务.md
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-06T00:38:46+08:00" content="2016-10-06">
+              2016-10-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>sequelize提供了事务支持，使用起来也非常的简单和方便，相比较于mongodb，使用关系型数据库很多时候是出于事务支持的考虑。本篇中只介绍一种自动事务管理的方法，也是最为使用的一种，其他更多请查阅<a href="http://docs.sequelizejs.com/en/latest/docs/transactions/" target="_blank" rel="external">sequelize事务</a></p>
+<p>自动事务管理需要使用continuation-local-storage来实现，所以需要额外安装continuation-local-storage</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import Sequelize from &apos;sequelize&apos;;</div><div class="line">import cls from &apos;continuation-local-storage&apos;;</div><div class="line"></div><div class="line">namespace = cls.createNamespace(&apos;my-very-own-namespace&apos;);</div><div class="line">//在初始化之前使用</div><div class="line">Sequelize.useCLS(namespace);</div></pre></td></tr></table></figure>
+<p>执行事务，如果发生错误自动回滚，执行完成自动提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sequelize.transaction(async (t) =&gt; &#123;</div><div class="line">    try &#123;</div><div class="line">        ...</div><div class="line">    &#125; catch(err) &#123;</div><div class="line">        throw err;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sequelize/" rel="tag">#sequelize</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/05/sequelize系列教程4：关系/" rel="next" title="sequelize系列教程4：关系">
+                <i class="fa fa-chevron-left"></i> sequelize系列教程4：关系
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -463,6 +366,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -482,8 +389,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -533,6 +449,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -629,11 +556,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
