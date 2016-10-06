@@ -255,6 +255,706 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/06/sequelize系列教程5：事务-md/" itemprop="url">
+                  sequelize系列教程5：事务.md
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-06T00:38:46+08:00" content="2016-10-06">
+              2016-10-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/06/sequelize系列教程5：事务-md/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/06/sequelize系列教程5：事务-md/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>sequelize提供了事务支持，使用起来也非常的简单和方便，相比较于mongodb，使用关系型数据库很多时候是出于事务支持的考虑。本篇中只介绍一种自动事务管理的方法，也是最为使用的一种，其他更多请查阅<a href="http://docs.sequelizejs.com/en/latest/docs/transactions/" target="_blank" rel="external">sequelize事务</a></p>
+<p>自动事务管理需要使用continuation-local-storage来实现，所以需要额外安装continuation-local-storage</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import Sequelize from &apos;sequelize&apos;;</div><div class="line">import cls from &apos;continuation-local-storage&apos;;</div><div class="line"></div><div class="line">namespace = cls.createNamespace(&apos;my-very-own-namespace&apos;);</div><div class="line">//在初始化之前使用</div><div class="line">Sequelize.useCLS(namespace);</div></pre></td></tr></table></figure>
+<p>执行事务，如果发生错误自动回滚，执行完成自动提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sequelize.transaction(async (t) =&gt; &#123;</div><div class="line">    try &#123;</div><div class="line">        ...</div><div class="line">    &#125; catch(err) &#123;</div><div class="line">        throw err;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/05/sequelize系列教程4：关系/" itemprop="url">
+                  sequelize系列教程4：关系
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-05T22:45:28+08:00" content="2016-10-05">
+              2016-10-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/05/sequelize系列教程4：关系/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/05/sequelize系列教程4：关系/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>介绍sequelize关系使用一个rbac用户权限系统来进行，通过该系统来对sequelize的关系使用进行讲解。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">//用户模型</div><div class="line">let UserModel = sequelize.define(&apos;user&apos;, &#123;</div><div class="line">	userId : &#123;</div><div class="line">		type : Sequelize.INTEGER,</div><div class="line">		primaryKey : true,</div><div class="line">		autoIncrement : true</div><div class="line">	&#125;,</div><div class="line">	username : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;,</div><div class="line">	email : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;,</div><div class="line">	password : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//用户分组模型</div><div class="line">let UserGroupModel = sequelize.define(&apos;userGroup&apos;, &#123;</div><div class="line">	groupId : &#123;</div><div class="line">		type : Sequelize.INTEGER,</div><div class="line">		primaryKey : true,</div><div class="line">		autoIncrement : true</div><div class="line">	&#125;,</div><div class="line">	name : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//角色模型</div><div class="line">let RoleModel = sequelize.define(&apos;role&apos;, &#123;</div><div class="line">	roleId : &#123;</div><div class="line">		type : Sequelize.INTEGER,</div><div class="line">		primaryKey : true,</div><div class="line">		autoIncrement : true</div><div class="line">	&#125;,</div><div class="line">	name : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//权限模型</div><div class="line">let AccessModel = sequelize.define(&apos;access&apos;, &#123;</div><div class="line">	accessId : &#123;</div><div class="line">		type : Sequelize.INTEGER,</div><div class="line">		primaryKey : true,</div><div class="line">		autoIncrement : true</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//权限节点模型</div><div class="line">let AccessNodeModel = sequelize.define(&apos;accessNode&apos;, &#123;</div><div class="line">	nodeId : &#123;</div><div class="line">		type : Sequelize.INTEGER,</div><div class="line">		primaryKey : true,</div><div class="line">		autoIncrement : true</div><div class="line">	&#125;,</div><div class="line">	path : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;,</div><div class="line">	method : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;,</div><div class="line">	status : &#123;</div><div class="line">		type : Sequelize.BOOLEAN</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>一个用户属于一个用户分组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserModel.belongsTo(UserGroupModel);</div></pre></td></tr></table></figure>
+<p>通过设置as属性可以在实例中使用get/set方法访问到关联的模型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">UserModel.belongsTo(UserGroupModel, &#123;</div><div class="line">	as : group</div><div class="line">&#125;);</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">//get group</div><div class="line">user.getGroup();</div><div class="line"></div><div class="line">//set group</div><div class="line">user.setGroup(group);</div><div class="line">//更改了用户的分组</div><div class="line">user.update();</div></pre></td></tr></table></figure>
+<p>一个用户分组拥有多个用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserGroupModel.hasMany(UserModel);</div></pre></td></tr></table></figure>
+<p>在sequelize直接设置双向的关系并不能起作用，而且会在单方生成两个外键，所以我们需要通过外键的设置来解决这个问题，让用户可以访问到用户分组，用户分组可以获取到其所有的用户。最终的关系设置应该是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">UserModel.belongsTo(UserGroup, &#123;</div><div class="line">	as : &apos;group&apos;,</div><div class="line">	foreignKey : &apos;groupId&apos;</div><div class="line">&#125;);</div><div class="line">UserGroupModel.hasMany(UserModel, &#123;</div><div class="line">	as : &apos;users&apos;,</div><div class="line">	foreignKey : &apos;groupId&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>一个用户分组可以有多个角色，一个角色可以有多个用户分组，这是属于多对多的关系，多对多模型在sequelize中用belongsToMany表示，通过一个through的中间模型来管理多对多的双边关系，through可以是一个model，也可以是一个字符串。singular和plural表示as的单数和复数，可以通过singular直接操作一个的项，plural和普通的as一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">UserGroupModel.belongsToMany(RoleModel, &#123;</div><div class="line">	as : &#123;</div><div class="line">		singular: &apos;role&apos;,</div><div class="line">    	plural: &apos;roles&apos;</div><div class="line">	&#125;,</div><div class="line">	through : &apos;groupRole&apos;</div><div class="line">&#125;);</div><div class="line">RoleModel.belongsToMany(UserGroupModel, &#123;</div><div class="line">	as : &#123;</div><div class="line">		singular : &apos;group&apos;,</div><div class="line">		plural : &apos;groups&apos;</div><div class="line">	&#125;,</div><div class="line">	through : &apos;groupRole&apos;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//获取用户分组的全部角色列表</div><div class="line">userGroup.getRoles();</div><div class="line"></div><div class="line">//添加一个用户分组角色</div><div class="line">userGroup.addRole(role);</div></pre></td></tr></table></figure>
+<h1 id="关系详解"><a href="#关系详解" class="headerlink" title="关系详解"></a>关系详解</h1><h2 id="belongsTo"><a href="#belongsTo" class="headerlink" title="belongsTo"></a>belongsTo</h2><p>belongsTo可以表示一个一对一的属于关系，也可以表示一个多对一的属于关系。例如一个身份证信息属于一个用户，一个用户属于一个用户分组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//一对一</div><div class="line">IDCardModel.belongsTo(UserModel);</div><div class="line">//多对一</div><div class="line">UserModel.belongsTo(UserGroupModel);</div></pre></td></tr></table></figure>
+<h2 id="hasOne"><a href="#hasOne" class="headerlink" title="hasOne"></a>hasOne</h2><p>hasone表示一个一对一的拥有关系，例如一个用户拥有一个身份证信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserModel.hasOne(IDCardModel);</div></pre></td></tr></table></figure>
+<h2 id="hasMany"><a href="#hasMany" class="headerlink" title="hasMany"></a>hasMany</h2><p>hasMany表示一个一对多的关系的拥有关系</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserGroupModel.hasMany(UserModel);</div></pre></td></tr></table></figure>
+<h2 id="belongsToMany"><a href="#belongsToMany" class="headerlink" title="belongsToMany"></a>belongsToMany</h2><p>belongsToMany表示一个多对多的关系，例如一个用户分组拥有多个角色，一个角色拥有多个用户分组。或者是一篇文章拥有多个tag，一个tag拥有多篇文章。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/05/sequelize系列教程3：实例/" itemprop="url">
+                  sequelize系列教程3：实例
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-05T22:28:21+08:00" content="2016-10-05">
+              2016-10-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/05/sequelize系列教程3：实例/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/05/sequelize系列教程3：实例/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="build"><a href="#build" class="headerlink" title="build"></a>build</h1><h2 id="build创建一个未保存的实例-instances"><a href="#build创建一个未保存的实例-instances" class="headerlink" title="build创建一个未保存的实例(instances)"></a>build创建一个未保存的实例(instances)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let user = UserModel.build(&#123;</div><div class="line">	username : &apos;xxx&apos;,</div><div class="line">	email : &apos;xxx@xxx.com&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">await user.save();</div></pre></td></tr></table></figure>
+<h1 id="create"><a href="#create" class="headerlink" title="create"></a>create</h1><h2 id="创建一个持久化实例"><a href="#创建一个持久化实例" class="headerlink" title="创建一个持久化实例"></a>创建一个持久化实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let user = await UserModel.build(&#123;</div><div class="line">	username : &apos;xxx&apos;,</div><div class="line">	email : &apos;xxx@xxx.com&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><h2 id="更新一个持久化实例"><a href="#更新一个持久化实例" class="headerlink" title="更新一个持久化实例"></a>更新一个持久化实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">await user.update(&#123;</div><div class="line">	username : &apos;xxxx&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="设定更新字段，不更新email，只更新username"><a href="#设定更新字段，不更新email，只更新username" class="headerlink" title="设定更新字段，不更新email，只更新username"></a>设定更新字段，不更新email，只更新username</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">await user.update(&#123;</div><div class="line">	username : &apos;xxxx&apos;</div><div class="line">	email : &apos;xxx@xxx.cn&apos;</div><div class="line">&#125;,&#123;</div><div class="line">	fields : [&apos;username&apos;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><h2 id="删除一个持久化实例"><a href="#删除一个持久化实例" class="headerlink" title="删除一个持久化实例"></a>删除一个持久化实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">await user.destroy();</div></pre></td></tr></table></figure>
+<h2 id="使用where删除持久化实例"><a href="#使用where删除持久化实例" class="headerlink" title="使用where删除持久化实例"></a>使用where删除持久化实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">await UserModel.destroy(&#123;</div><div class="line">	where : ...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/05/sequelize系列教程2：查询/" itemprop="url">
+                  sequelize系列教程2：查询
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-05T21:26:51+08:00" content="2016-10-05">
+              2016-10-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/05/sequelize系列教程2：查询/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/05/sequelize系列教程2：查询/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><p>要选择只有一些属性，可以使用属性(attributes)选项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//select username, email from user ...</div><div class="line">let users = UserModel.findAll(&#123;</div><div class="line">	attributes : [&apos;username&apos;, &apos;email&apos;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="使用别名"><a href="#使用别名" class="headerlink" title="使用别名"></a>使用别名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//select email, username as name from user ...</div><div class="line">UserModel.findAll(&#123;</div><div class="line">  attributes: [&apos;email&apos;, [&apos;username&apos;, &apos;name&apos;]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>使用函数可以使用sequelize.fn</p>
+<h2 id="count"><a href="#count" class="headerlink" title="count"></a>count</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//select COUNT(userId) from user</div><div class="line">let count = await UserModel.findOne(&#123;</div><div class="line">  attributes: [[sequelize.fn(&apos;COUNT&apos;, sequelize.col(&apos;userId&apos;))]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="max"><a href="#max" class="headerlink" title="max"></a>max</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//获取登陆最多的用户的登陆次数</div><div class="line">//select max(loginTimes) from user</div><div class="line">let max = UserModel.findOne(&#123;</div><div class="line">	attributes : [[sequelize.fn(&apos;MAX&apos;, sequelize.col(&apos;loginTimes))]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="min"><a href="#min" class="headerlink" title="min"></a>min</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//获取登陆最少的用户的登陆次数</div><div class="line">//select max(loginTimes) from user</div><div class="line">let max = UserModel.findOne(&#123;</div><div class="line">	attributes : [[sequelize.fn(&apos;MIN&apos;, sequelize.col(&apos;loginTimes))]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/05/sequelize系列教程1：入门和模型定义/" itemprop="url">
+                  sequelize系列教程1：入门和模型定义
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-05T20:46:07+08:00" content="2016-10-05">
+              2016-10-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/05/sequelize系列教程1：入门和模型定义/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/05/sequelize系列教程1：入门和模型定义/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://github.com/sequelize/sequelize" target="_blank" rel="external">sequelize</a>是一款node.js下最受欢迎的orm框架，支持mysql、PostgreSQL、sqlite等关系型数据库。详细使用请查看<a href="http://docs.sequelizejs.com/en/latest/" target="_blank" rel="external">官方文档</a>。本系列文章使用的是sequelize 4.x版本，和使用了ES7的async、await异步处理关键词。</p>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ npm install --save sequelize</div><div class="line"></div><div class="line"># 执行以下操作之一</div><div class="line">$ npm install --save pg pg-hstore</div><div class="line">$ npm install --save mysql2</div><div class="line">$ npm install --save sqlite3</div><div class="line">$ npm install --save tedious // MSSQL</div></pre></td></tr></table></figure>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>以下以mysql为示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import Sequelize from &apos;sequelize&apos;;</div><div class="line"></div><div class="line">let sequelize = new Sequelize(</div><div class="line">            database,</div><div class="line">            root,</div><div class="line">            &apos;password&apos;, &#123;</div><div class="line">            host: &apos;localhost&apos;,</div><div class="line">            dialect : &apos;mysql&apos;,</div><div class="line">            dialectOptions : &#123;</div><div class="line">                charset : &apos;utf8_general_ci&apos;</div><div class="line">            &#125;,</div><div class="line">            port : 3306,</div><div class="line">            pool: &#123;</div><div class="line">                max : 20,</div><div class="line">                min : 1,</div><div class="line">               idle : 10000</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        try &#123;</div><div class="line">            await sequelize.authenticate();</div><div class="line">            console.log(&apos;Connection has been established successfully.&apos;);</div><div class="line">        &#125; catch (err) &#123;</div><div class="line">            console.log(&apos;Unable to connect to the database:&apos;, err);</div><div class="line">            throw err;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<h1 id="model"><a href="#model" class="headerlink" title="model"></a>model</h1><h2 id="定义示例"><a href="#定义示例" class="headerlink" title="定义示例"></a>定义示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let UserModel = sequelize.define(&apos;user&apos;, &#123;</div><div class="line">	userId : &#123;</div><div class="line">		type : Sequelize.INTEGER,</div><div class="line">		primaryKey : true,</div><div class="line">		autoIncrement : true</div><div class="line">	&#125;,</div><div class="line">	username : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;,</div><div class="line">	email : &#123;</div><div class="line">		type : Sequelize.STRING</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><table>
+<thead>
+<tr>
+<th>JavaScript</th>
+<th style="text-align:center">Sequelize</th>
+<th style="text-align:right">Database</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.INTEGER</td>
+<td style="text-align:right">int</td>
+</tr>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.BIGINT</td>
+<td style="text-align:right">bigint</td>
+</tr>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.FLOAT</td>
+<td style="text-align:right">float</td>
+</tr>
+<tr>
+<td>number</td>
+<td style="text-align:center">Sequelize.DOUBLE</td>
+<td style="text-align:right">double</td>
+</tr>
+<tr>
+<td>Date</td>
+<td style="text-align:center">Sequelize.DATE</td>
+<td style="text-align:right">datetime</td>
+</tr>
+<tr>
+<td>bool</td>
+<td style="text-align:center">Sequelize.BOOL</td>
+<td style="text-align:right">tinyint(1)</td>
+</tr>
+<tr>
+<td>string</td>
+<td style="text-align:center">Sequelize.STRING</td>
+<td style="text-align:right">varchar</td>
+</tr>
+<tr>
+<td>string</td>
+<td style="text-align:center">Sequelize.TEXT</td>
+<td style="text-align:right">text</td>
+</tr>
+</tbody>
+</table>
+<h2 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h2><p>定义组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">primaryKey : true</div></pre></td></tr></table></figure>
+<p>定义为自增</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">type : Sequelize.INTEGER,</div><div class="line">autoIncrement : true</div></pre></td></tr></table></figure>
+<p>定义为uuid</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type : Sequelize.UUID</div></pre></td></tr></table></figure>
+<h1 id="模型使用"><a href="#模型使用" class="headerlink" title="模型使用"></a>模型使用</h1><h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><h3 id="find-by-id"><a href="#find-by-id" class="headerlink" title="find by id"></a>find by id</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let user = await UserModel.findById(1);</div><div class="line">console.log(user);</div></pre></td></tr></table></figure>
+<h3 id="查找单个"><a href="#查找单个" class="headerlink" title="查找单个"></a>查找单个</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//根据邮箱和密码查找一个用户</div><div class="line">let user = await UserModel.findOne(&#123;</div><div class="line">	where : &#123;</div><div class="line">		$and : [</div><div class="line">			&#123;email : xxx@xxx.com&#125;,</div><div class="line">			&#123;password : xxx&#125;</div><div class="line">		]</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let user = await UserModel.create(&#123;</div><div class="line">	username : &apos;xxx&apos;,</div><div class="line">	email : &apos;xxx@xxx.com&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="查找所有"><a href="#查找所有" class="headerlink" title="查找所有"></a>查找所有</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//查找状态为true的users</div><div class="line">let users = await UserModel.findAll(&#123;</div><div class="line">	where : &#123;</div><div class="line">		status : true</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="where"><a href="#where" class="headerlink" title="where"></a>where</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$and: &#123;a: 5&#125;           // AND (a = 5)</div><div class="line">$and: [&#123;a: 5&#125;, &#123;a: 6&#125;] // (a = 6) AND (a = 6)</div><div class="line">$or: [&#123;a: 5&#125;, &#123;a: 6&#125;]  // (a = 5 OR a = 6)</div><div class="line">$gt: 6,                // id &gt; 6</div><div class="line">$gte: 6,               // id &gt;= 6</div><div class="line">$lt: 10,               // id &lt; 10</div><div class="line">$lte: 10,              // id &lt;= 10</div><div class="line">$ne: 20,               // id != 20</div><div class="line">$between: [6, 10],     // BETWEEN 6 AND 10</div><div class="line">$notBetween: [11, 15], // NOT BETWEEN 11 AND 15</div><div class="line">$in: [1, 2],           // IN [1, 2]</div><div class="line">$notIn: [1, 2],        // NOT IN [1, 2]</div><div class="line">$like: &apos;%hat&apos;,         // LIKE &apos;%hat&apos;</div><div class="line">$notLike: &apos;%hat&apos;       // NOT LIKE &apos;%hat&apos;</div><div class="line">$notILike: &apos;%hat&apos;      // NOT ILIKE &apos;%hat&apos;  (PG only)</div><div class="line">$not: false,           // status NOT FALSE</div></pre></td></tr></table></figure>
+<h3 id="分页排序"><a href="#分页排序" class="headerlink" title="分页排序"></a>分页排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">limit: 10              //获取10个</div><div class="line">offset: 10             //从第10个开始</div><div class="line">order: &apos;updateAt DESC&apos; //根据更改时间降序</div></pre></td></tr></table></figure>
+<h2 id="原生查询"><a href="#原生查询" class="headerlink" title="原生查询"></a>原生查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserModel.findAll(&#123; where: &#123; ... &#125;, raw: true &#125;)</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/05/sequelize-auto-migration/" itemprop="url">
                   sequelize auto migration
                 </a>
@@ -401,7 +1101,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
