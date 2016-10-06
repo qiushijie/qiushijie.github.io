@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="sequelize," />
+  <meta name="keywords" content="async," />
 
 
 
@@ -84,28 +84,16 @@
 
 
 
-<meta name="description" content="#属性
-要选择只有一些属性，可以使用属性(attributes)选项
-1234//select username, email from user ...let users = UserModel.findAll(&amp;#123;	attributes : [&amp;apos;username&amp;apos;, &amp;apos;email&amp;apos;]&amp;#125;);
-##使用别名
-1234//select ema">
+<meta name="description" content="async和await是ES7新标准提出的解决异步编程中回调嵌套问题的关键词，其实async和await相当于yield和*，async、await语义更加清晰。async和await可以说是作为JavaScript异步编程的解决的终极方案，使用起来非常方便。在编写node.js代码时，不会再出现回调地狱的问题，代码的结构也更为清晰。async关键词写在一个函数声明的前面，其含义是该函数是一个异步">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sequelize系列教程2：查询">
-<meta property="og:url" content="http://yoursite.com/2016/10/05/sequelize系列教程2：查询/index.html">
+<meta property="og:title" content="ES7 async/await异步编程">
+<meta property="og:url" content="http://yoursite.com/2016/10/06/ES7-async-await异步编程/index.html">
 <meta property="og:site_name" content="qiushijie blog">
-<meta property="og:description" content="#属性
-要选择只有一些属性，可以使用属性(attributes)选项
-1234//select username, email from user ...let users = UserModel.findAll(&amp;#123;	attributes : [&amp;apos;username&amp;apos;, &amp;apos;email&amp;apos;]&amp;#125;);
-##使用别名
-1234//select ema">
-<meta property="og:updated_time" content="2016-10-05T14:24:19.000Z">
+<meta property="og:description" content="async和await是ES7新标准提出的解决异步编程中回调嵌套问题的关键词，其实async和await相当于yield和*，async、await语义更加清晰。async和await可以说是作为JavaScript异步编程的解决的终极方案，使用起来非常方便。在编写node.js代码时，不会再出现回调地狱的问题，代码的结构也更为清晰。async关键词写在一个函数声明的前面，其含义是该函数是一个异步">
+<meta property="og:updated_time" content="2016-10-06T03:39:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sequelize系列教程2：查询">
-<meta name="twitter:description" content="#属性
-要选择只有一些属性，可以使用属性(attributes)选项
-1234//select username, email from user ...let users = UserModel.findAll(&amp;#123;	attributes : [&amp;apos;username&amp;apos;, &amp;apos;email&amp;apos;]&amp;#125;);
-##使用别名
-1234//select ema">
+<meta name="twitter:title" content="ES7 async/await异步编程">
+<meta name="twitter:description" content="async和await是ES7新标准提出的解决异步编程中回调嵌套问题的关键词，其实async和await相当于yield和*，async、await语义更加清晰。async和await可以说是作为JavaScript异步编程的解决的终极方案，使用起来非常方便。在编写node.js代码时，不会再出现回调地狱的问题，代码的结构也更为清晰。async关键词写在一个函数声明的前面，其含义是该函数是一个异步">
 
 
 
@@ -126,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/05/sequelize系列教程2：查询/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/06/ES7-async-await异步编程/"/>
 
-  <title> sequelize系列教程2：查询 | qiushijie blog </title>
+  <title> ES7 async/await异步编程 | qiushijie blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -268,7 +256,7 @@
             
             
               
-                sequelize系列教程2：查询
+                ES7 async/await异步编程
               
             
           </h1>
@@ -280,8 +268,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T21:26:51+08:00" content="2016-10-05">
-              2016-10-05
+            <time itemprop="dateCreated" datetime="2016-10-06T11:10:25+08:00" content="2016-10-06">
+              2016-10-06
             </time>
           </span>
 
@@ -310,8 +298,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/05/sequelize系列教程2：查询/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/05/sequelize系列教程2：查询/" itemprop="commentsCount"></span>
+                <a href="/2016/10/06/ES7-async-await异步编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/06/ES7-async-await异步编程/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -334,20 +322,16 @@
       
 
       
-        <p>#属性</p>
-<p>要选择只有一些属性，可以使用属性(attributes)选项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//select username, email from user ...</div><div class="line">let users = UserModel.findAll(&#123;</div><div class="line">	attributes : [&apos;username&apos;, &apos;email&apos;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>##使用别名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//select email, username as name from user ...</div><div class="line">UserModel.findAll(&#123;</div><div class="line">  attributes: [&apos;email&apos;, [&apos;username&apos;, &apos;name&apos;]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>#函数</p>
-<p>使用函数可以使用sequelize.fn</p>
-<p>##count</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//select COUNT(userId) from user</div><div class="line">let count = await UserModel.findOne(&#123;</div><div class="line">  attributes: [[sequelize.fn(&apos;COUNT&apos;, sequelize.col(&apos;userId&apos;))]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>##max</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//获取登陆最多的用户的登陆次数</div><div class="line">//select max(loginTimes) from user</div><div class="line">let max = UserModel.findOne(&#123;</div><div class="line">	attributes : [[sequelize.fn(&apos;MAX&apos;, sequelize.col(&apos;loginTimes))]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>##min</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//获取登陆最少的用户的登陆次数</div><div class="line">//select max(loginTimes) from user</div><div class="line">let max = UserModel.findOne(&#123;</div><div class="line">	attributes : [[sequelize.fn(&apos;MIN&apos;, sequelize.col(&apos;loginTimes))]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-
+        <p>async和await是ES7新标准提出的解决异步编程中回调嵌套问题的关键词，其实async和await相当于yield和*，async、await语义更加清晰。async和await可以说是作为JavaScript异步编程的解决的终极方案，使用起来非常方便。在编写node.js代码时，不会再出现回调地狱的问题，代码的结构也更为清晰。async关键词写在一个函数声明的前面，其含义是该函数是一个异步的函数。await用在async函数体内，当执行到有await语句的地方，会先执行完该异步语句，然后再往下去执行下一条语句。</p>
+<p><a href="http://node.green/" target="_blank" rel="external">node.js 7.0</a>中已经可以直接使用–harmony直接支持async，现在一般通过babel插件来将async函数编译然后执行。现在node.js 7还没有正式发布，所以先介绍一下怎么样使用babel来支持async。</p>
+<p>babel async部分配置文件，stage-3中包含了ES7的语法支持，syntax-async-generators插件会将async函数编译。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;presets&quot;: [</div><div class="line">    &quot;stage-3&quot;</div><div class="line">  ],</div><div class="line">  &quot;plugins&quot;: [</div><div class="line">    &quot;syntax-async-generators&quot;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>安装相应的依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install babel-preset-stage-3 --save-dev</div><div class="line">npm install babel-plugin-syntax-async-generators --save-dev</div></pre></td></tr></table></figure>
+<p>以下以异步读取文件为例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//把文件读取函数包装成一个async函数</div><div class="line">let readFile = function (fileName)&#123;</div><div class="line">  return new Promise(function (resolve, reject)&#123;</div><div class="line">    fs.readFile(fileName, function(error, data)&#123;</div><div class="line">      if (error) reject(error);</div><div class="line">      resolve(data);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//await关键词只能在async函数中使用</div><div class="line">let asyncReadFile = async function ()&#123;</div><div class="line">  let f = await readFile(&apos;/xxx&apos;);</div><div class="line">  console.log(f.toString());</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>异常处理</p>
+<p>在使用async时候，如果没有加入try catch可能会导致异常无法正常捕获到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">let asyncReadFile = async function ()&#123;</div><div class="line">    try &#123;</div><div class="line">        let f = await readFile(&apos;/xxx&apos;);</div><div class="line">        console.log(f.toString());</div><div class="line">    &#125; catch(err) &#123;</div><div class="line">        throw err;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">try &#123;</div><div class="line">    asyncReadFile();</div><div class="line">&#125; catch(err) &#123;</div><div class="line">    console.log(err);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -369,7 +353,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/sequelize/" rel="tag">#sequelize</a>
+            <a href="/tags/async/" rel="tag">#async</a>
           
         </div>
       
@@ -378,17 +362,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/05/sequelize系列教程1：入门和模型定义/" rel="next" title="sequelize系列教程1：入门和模型定义">
-                <i class="fa fa-chevron-left"></i> sequelize系列教程1：入门和模型定义
+              <a href="/2016/10/06/sequelize系列教程5：事务-md/" rel="next" title="sequelize系列教程5：事务.md">
+                <i class="fa fa-chevron-left"></i> sequelize系列教程5：事务.md
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/05/sequelize系列教程3：实例/" rel="prev" title="sequelize系列教程3：实例">
-                sequelize系列教程3：实例 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -403,10 +383,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/05/sequelize系列教程2：查询/"
-     data-title="sequelize系列教程2：查询"
+        <div class="ds-share flat" data-thread-key="2016/10/06/ES7-async-await异步编程/"
+     data-title="ES7 async/await异步编程"
      data-content=""
-     data-url="http://yoursite.com/2016/10/05/sequelize系列教程2：查询/">
+     data-url="http://yoursite.com/2016/10/06/ES7-async-await异步编程/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -433,8 +413,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/05/sequelize系列教程2：查询/"
-           data-title="sequelize系列教程2：查询" data-url="http://yoursite.com/2016/10/05/sequelize系列教程2：查询/">
+      <div class="ds-thread" data-thread-key="2016/10/06/ES7-async-await异步编程/"
+           data-title="ES7 async/await异步编程" data-url="http://yoursite.com/2016/10/06/ES7-async-await异步编程/">
       </div>
     
   </div>
