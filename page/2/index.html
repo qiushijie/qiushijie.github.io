@@ -255,6 +255,131 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/06/ES7-async-await异步编程/" itemprop="url">
+                  ES7 async/await异步编程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-06T11:10:25+08:00" content="2016-10-06">
+              2016-10-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/06/ES7-async-await异步编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/06/ES7-async-await异步编程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="async-await"><a href="#async-await" class="headerlink" title="async await"></a>async await</h1><p>async和await是ES7新标准提出的解决异步编程中回调嵌套问题的关键词，其实async和await相当于yield和*，async、await语义更加清晰。async和await可以说是作为JavaScript异步编程的解决的终极方案，使用起来非常方便。在编写node.js代码时，不会再出现回调地狱的问题，代码的结构也更为清晰。async关键词写在一个函数声明的前面，其含义是该函数是一个异步的函数。await用在async函数体内，当执行到有await语句的地方，会先执行完该异步语句，然后再往下去执行下一条语句。</p>
+<p><a href="http://node.green/" target="_blank" rel="external">node.js 7.0</a>中已经可以直接使用–harmony直接支持async，现在一般通过babel插件来将async函数编译然后执行。现在node.js 7还没有正式发布，所以先介绍一下怎么样使用babel来支持async。</p>
+<h2 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h2><p>babel async部分配置文件，stage-3中包含了ES7的语法支持，syntax-async-generators插件会将async函数编译。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;presets&quot;: [</div><div class="line">    &quot;stage-3&quot;</div><div class="line">  ],</div><div class="line">  &quot;plugins&quot;: [</div><div class="line">    &quot;syntax-async-generators&quot;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="安装相应的依赖"><a href="#安装相应的依赖" class="headerlink" title="安装相应的依赖"></a>安装相应的依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install babel-preset-stage-3 --save-dev</div><div class="line">npm install babel-plugin-syntax-async-generators --save-dev</div></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="以下以异步读取文件为例"><a href="#以下以异步读取文件为例" class="headerlink" title="以下以异步读取文件为例"></a>以下以异步读取文件为例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//把文件读取函数包装成一个async函数</div><div class="line">let readFile = function (fileName)&#123;</div><div class="line">  return new Promise(function (resolve, reject)&#123;</div><div class="line">    fs.readFile(fileName, function(error, data)&#123;</div><div class="line">      if (error) reject(error);</div><div class="line">      resolve(data);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//await关键词只能在async函数中使用</div><div class="line">let asyncReadFile = async function ()&#123;</div><div class="line">  let f = await readFile(&apos;/xxx&apos;);</div><div class="line">  console.log(f.toString());</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><p>在使用async时候，如果没有加入try catch可能会导致异常无法正常捕获到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">let asyncReadFile = async function ()&#123;</div><div class="line">    try &#123;</div><div class="line">        let f = await readFile(&apos;/xxx&apos;);</div><div class="line">        console.log(f.toString());</div><div class="line">    &#125; catch(err) &#123;</div><div class="line">        throw err;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">try &#123;</div><div class="line">    asyncReadFile();</div><div class="line">&#125; catch(err) &#123;</div><div class="line">    console.log(err);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/06/sequelize系列教程5：事务-md/" itemprop="url">
                   sequelize系列教程5：事务.md
                 </a>
@@ -1101,7 +1226,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
