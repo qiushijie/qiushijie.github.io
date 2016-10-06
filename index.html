@@ -255,6 +255,129 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/06/npm项目本地部署：使用npm-link/" itemprop="url">
+                  npm项目本地部署：使用npm link
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-06T12:08:50+08:00" content="2016-10-06">
+              2016-10-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/06/npm项目本地部署：使用npm-link/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/06/npm项目本地部署：使用npm-link/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>有的时候，我们开发的私有公共项目，其他项目需要引用，但是又不希望发布到npm仓库中（下一篇文章将介绍怎么搭建私有npm仓库），或者是该私有项目还需要不断的去调试，在其他项目中调用的过程中出现的问题能及时修复。这样的情况下，在本地直接依赖该私有项目是一个比较不错的解决方案。</p>
+<p>先进入到需要发布的项目目录，执行sudo npm link命令，该命令将项目link到全局的node_modules目录中</p>
+<p>进入到需要引用该私有项目的目录中，执行npm link 私有项目名称即可</p>
+<p>接下来介绍一下另外一种情况，如果项目中使用了babel等工具对代码进行编译，我们直接在项目的根目录link会导致引用出现异常，因为这里的代码是还没有经过编译的。例如我们编译后的代码放在dist目录中，先将package.json等文件拷贝过去，最好是写成一个build命令，因为在发布的时候也会用到。然后进入dist目录，在dist目录下去执行sudo npm link即可。如果项目添加了新的依赖，需要重新进入到dist目录里面来运行sudo npm install命令。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/06/webstorm-使用es6编程-babel配置/" itemprop="url">
                   webstorm 使用es6编程 babel配置
                 </a>
@@ -1380,7 +1503,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
@@ -1397,7 +1520,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">Tags</span>
               </a>
             </div>
