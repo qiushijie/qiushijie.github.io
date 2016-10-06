@@ -775,6 +775,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/编译原理/" itemprop="url" rel="index">
+                    <span itemprop="name">编译原理</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -806,7 +825,15 @@
       
         
           
-            
+            <p>antlr是一个前端编译器的生成工具，支持多种目标语言生成，包括java、javascript、c#、python等。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>以下为mac系统的安装，windows和linux系统安装参照<a href="http://www.antlr.org/" target="_blank" rel="external">官方文档</a></p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">OS X</div><div class="line">$ cd /usr/local/lib</div><div class="line">$ sudo curl -O http://www.antlr.org/download/antlr-4.5.3-complete.jar</div></pre></td></tr></table></figure>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>打开用户根目录.bash_profile文件加入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export CLASSPATH=&quot;.:/usr/local/lib/antlr-4.5.3-complete.jar:$CLASSPATH&quot;</div><div class="line">alias antlr4=&apos;java -jar /usr/local/lib/antlr-4.5.3-complete.jar&apos;</div><div class="line">alias grun=&apos;java org.antlr.v4.gui.TestRig&apos;</div></pre></td></tr></table></figure>
+<h2 id="安装校验"><a href="#安装校验" class="headerlink" title="安装校验"></a>安装校验</h2><p>命令行输入antlr4，输出antlr帮助信息安装成功</p>
+<h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><h2 id="eclipse插件安装"><a href="#eclipse插件安装" class="headerlink" title="eclipse插件安装"></a>eclipse插件安装</h2><p>打开eclipse marketplace，输入antlr4，选择antlr4 IDE安装即可<br><img src="/images/antlr-eclipse-plugin.png" alt="antlr4 eclipse"></p>
+<h2 id="IDEA插件安装"><a href="#IDEA插件安装" class="headerlink" title="IDEA插件安装"></a>IDEA插件安装</h2><p>打开plugins，输入antlr搜索选择antlr v4 grammar plugin安装即可<br><img src="/images/antlr-idea-plugin.png" alt="antlr idea"></p>
+
           
         
       
