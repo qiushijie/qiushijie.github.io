@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="antlr," />
+  <meta name="keywords" content="docker," />
 
 
 
@@ -84,28 +84,25 @@
 
 
 
-<meta name="description" content="词法antlr使用的定义规则与正则表达式类似，掌握起来不难
-注释单行1// 单行注释
-多行123/*** 多行注释*/
-标识符标识符名字以一个大写字母开头，例如Name : [a-z]+;。标识符表示一个词法单元，其匹配规则的优先级是从上往下，上面的标识符被匹配到了，下面的就不会被匹配。
-字面量包含在语法中的字符称为字面量，例如exp : &amp;#39;if&amp;#39;，这里的if就是一个字面量，字面量">
+<meta name="description" content="镜像安装从docker hub下载镜像并安装，如果遇到权限不足情况加上sudo运行，使用latest会自动安装最新的版本，并且会将本地镜像自动更新到最新。
+node.js1docker pull node:latest
+mysql1docker pull mysql:latest
+生成容器mysql生成一个名为mysql的mysql容器，设置密码为my-secret-pw，默认用户名为root，并">
 <meta property="og:type" content="article">
-<meta property="og:title" content="antlr系列教程2：词法和语法定义">
-<meta property="og:url" content="http://yoursite.com/2016/10/06/antlr系列教程2：词法和文法定义/index.html">
+<meta property="og:title" content="使用docke部署node.js应用和mysql数据库">
+<meta property="og:url" content="http://yoursite.com/2016/10/16/使用docke部署node-js应用和mysql数据库/index.html">
 <meta property="og:site_name" content="qiushijie blog">
-<meta property="og:description" content="词法antlr使用的定义规则与正则表达式类似，掌握起来不难
-注释单行1// 单行注释
-多行123/*** 多行注释*/
-标识符标识符名字以一个大写字母开头，例如Name : [a-z]+;。标识符表示一个词法单元，其匹配规则的优先级是从上往下，上面的标识符被匹配到了，下面的就不会被匹配。
-字面量包含在语法中的字符称为字面量，例如exp : &amp;#39;if&amp;#39;，这里的if就是一个字面量，字面量">
-<meta property="og:updated_time" content="2016-10-06T08:12:52.000Z">
+<meta property="og:description" content="镜像安装从docker hub下载镜像并安装，如果遇到权限不足情况加上sudo运行，使用latest会自动安装最新的版本，并且会将本地镜像自动更新到最新。
+node.js1docker pull node:latest
+mysql1docker pull mysql:latest
+生成容器mysql生成一个名为mysql的mysql容器，设置密码为my-secret-pw，默认用户名为root，并">
+<meta property="og:updated_time" content="2016-10-16T13:26:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="antlr系列教程2：词法和语法定义">
-<meta name="twitter:description" content="词法antlr使用的定义规则与正则表达式类似，掌握起来不难
-注释单行1// 单行注释
-多行123/*** 多行注释*/
-标识符标识符名字以一个大写字母开头，例如Name : [a-z]+;。标识符表示一个词法单元，其匹配规则的优先级是从上往下，上面的标识符被匹配到了，下面的就不会被匹配。
-字面量包含在语法中的字符称为字面量，例如exp : &amp;#39;if&amp;#39;，这里的if就是一个字面量，字面量">
+<meta name="twitter:title" content="使用docke部署node.js应用和mysql数据库">
+<meta name="twitter:description" content="镜像安装从docker hub下载镜像并安装，如果遇到权限不足情况加上sudo运行，使用latest会自动安装最新的版本，并且会将本地镜像自动更新到最新。
+node.js1docker pull node:latest
+mysql1docker pull mysql:latest
+生成容器mysql生成一个名为mysql的mysql容器，设置密码为my-secret-pw，默认用户名为root，并">
 
 
 
@@ -126,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/06/antlr系列教程2：词法和文法定义/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/16/使用docke部署node-js应用和mysql数据库/"/>
 
-  <title> antlr系列教程2：词法和语法定义 | qiushijie blog </title>
+  <title> 使用docke部署node.js应用和mysql数据库 | qiushijie blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -268,7 +265,7 @@
             
             
               
-                antlr系列教程2：词法和语法定义
+                使用docke部署node.js应用和mysql数据库
               
             
           </h1>
@@ -280,8 +277,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-06T14:56:25+08:00" content="2016-10-06">
-              2016-10-06
+            <time itemprop="dateCreated" datetime="2016-10-16T19:34:32+08:00" content="2016-10-16">
+              2016-10-16
             </time>
           </span>
 
@@ -294,8 +291,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/编译原理/" itemprop="url" rel="index">
-                    <span itemprop="name">编译原理</span>
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
                   </a>
                 </span>
 
@@ -310,8 +307,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/06/antlr系列教程2：词法和文法定义/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/06/antlr系列教程2：词法和文法定义/" itemprop="commentsCount"></span>
+                <a href="/2016/10/16/使用docke部署node-js应用和mysql数据库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/16/使用docke部署node-js应用和mysql数据库/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -334,22 +331,22 @@
       
 
       
-        <h1 id="词法"><a href="#词法" class="headerlink" title="词法"></a>词法</h1><p>antlr使用的定义规则与正则表达式类似，掌握起来不难</p>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="单行"><a href="#单行" class="headerlink" title="单行"></a>单行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">// 单行注释</div></pre></td></tr></table></figure>
-<h3 id="多行"><a href="#多行" class="headerlink" title="多行"></a>多行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* 多行注释</div><div class="line">*/</div></pre></td></tr></table></figure>
-<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>标识符名字以一个大写字母开头，例如<code>Name : [a-z]+;</code>。标识符表示一个词法单元，其匹配规则的优先级是从上往下，上面的标识符被匹配到了，下面的就不会被匹配。</p>
-<h2 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h2><p>包含在语法中的字符称为字面量，例如<code>exp : &#39;if&#39;</code>，这里的if就是一个字面量，字面量不包含正则表达式。</p>
-<h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><p>不要使用这些关键词作为语法的名称</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import, fragment, lexer, parser, grammar, returns,</div><div class="line">locals, throws, catch, finally, mode, options, tokens</div></pre></td></tr></table></figure>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><p>语法由语法的声明和它的规则列表组成，一般形式如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/** Optional javadoc style comment */</div><div class="line">grammar Name;</div><div class="line">options &#123;...&#125;</div><div class="line">import ... ;</div><div class="line"></div><div class="line">tokens &#123;...&#125;</div><div class="line">channels &#123;...&#125; // lexer only</div><div class="line">@actionName &#123;...&#125;</div><div class="line"></div><div class="line">rule1</div><div class="line">...</div><div class="line">ruleN</div></pre></td></tr></table></figure>
-<p>grammar名字必须与文件名一致，例如文件名为Hello.g4，那么grammar名字就应该是Hello。</p>
-<p>语法声明的首字母必须是小写的，而词法声明的首字母必须是大写的。</p>
-<p>如果语法和词法变得复杂的情况下，将语法和词法文件分离开来定义也是可以的，在分离的词法定义文件中可以使用mode等功能</p>
-<p>语法定义文件头部以parser开始</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">parser grammar Name;</div></pre></td></tr></table></figure>
-<p>词法定义文件的头部以lexer开始</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lexer grammar Name;</div></pre></td></tr></table></figure>
+        <h1 id="镜像安装"><a href="#镜像安装" class="headerlink" title="镜像安装"></a>镜像安装</h1><p>从docker hub下载镜像并安装，如果遇到权限不足情况加上sudo运行，使用latest会自动安装最新的版本，并且会将本地镜像自动更新到最新。</p>
+<h2 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull node:latest</div></pre></td></tr></table></figure>
+<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull mysql:latest</div></pre></td></tr></table></figure>
+<h1 id="生成容器"><a href="#生成容器" class="headerlink" title="生成容器"></a>生成容器</h1><h2 id="mysql-1"><a href="#mysql-1" class="headerlink" title="mysql"></a>mysql</h2><p>生成一个名为mysql的mysql容器，设置密码为my-secret-pw，默认用户名为root，并设定编码为utf-8，更多设置查看<a href="https://hub.docker.com/r/library/mysql" target="_blank" rel="external">镜像文档</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:latest --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci</div></pre></td></tr></table></figure>
+<h2 id="node-js-1"><a href="#node-js-1" class="headerlink" title="node.js"></a>node.js</h2><p>生成一个名为node的node.js容器，并link mysql容器到当前容器，别名为db，将node容器内部3000端口映射到主机的3333端口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -i -p 3333:3000 --name node --link mysql:db node:latest</div></pre></td></tr></table></figure>
+<p>使用link命令可以在两个容器将建立连接，主容器可以直接访问子容器中的网络端口。</p>
+<p>mysql进行将会在子容器中自动设定其密码和host以及post，在程序中使用process.env获取相关的环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//数据库名称</div><div class="line">process.env.DB_ENV_MYSQL_DATABASE</div><div class="line">//数据库密码</div><div class="line">process.env.DB_ENV_MYSQL_ROOT_PASSWORD</div><div class="line">//host</div><div class="line">process.env.DB_PORT_3306_TCP_ADDR</div></pre></td></tr></table></figure>
+<h1 id="代码部署"><a href="#代码部署" class="headerlink" title="代码部署"></a>代码部署</h1><p>获取node容器的id</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker ps</div></pre></td></tr></table></figure>
+<p>将本地代码部署到容器中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker cp 本地路径 容器id:容器路径</div></pre></td></tr></table></figure>
+<p>安装完npm依赖，运行node.js程序的启动脚本即可。</p>
+
       
     </div>
 
@@ -371,7 +368,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/antlr/" rel="tag">#antlr</a>
+            <a href="/tags/docker/" rel="tag">#docker</a>
           
         </div>
       
@@ -380,17 +377,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/06/antlr系列教程1：安装和开发环境配置/" rel="next" title="antlr系列教程1：安装和开发环境配置">
-                <i class="fa fa-chevron-left"></i> antlr系列教程1：安装和开发环境配置
+              <a href="/2016/10/06/orm框架详解/" rel="next" title="orm框架详解">
+                <i class="fa fa-chevron-left"></i> orm框架详解
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/06/antlr系列教程3：解析/" rel="prev" title="antlr系列教程3：解析">
-                antlr系列教程3：解析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -405,10 +398,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/06/antlr系列教程2：词法和文法定义/"
-     data-title="antlr系列教程2：词法和语法定义"
+        <div class="ds-share flat" data-thread-key="2016/10/16/使用docke部署node-js应用和mysql数据库/"
+     data-title="使用docke部署node.js应用和mysql数据库"
      data-content=""
-     data-url="http://yoursite.com/2016/10/06/antlr系列教程2：词法和文法定义/">
+     data-url="http://yoursite.com/2016/10/16/使用docke部署node-js应用和mysql数据库/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -435,8 +428,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/06/antlr系列教程2：词法和文法定义/"
-           data-title="antlr系列教程2：词法和语法定义" data-url="http://yoursite.com/2016/10/06/antlr系列教程2：词法和文法定义/">
+      <div class="ds-thread" data-thread-key="2016/10/16/使用docke部署node-js应用和mysql数据库/"
+           data-title="使用docke部署node.js应用和mysql数据库" data-url="http://yoursite.com/2016/10/16/使用docke部署node-js应用和mysql数据库/">
       </div>
     
   </div>
@@ -527,7 +520,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#词法"><span class="nav-number">1.</span> <span class="nav-text">词法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">1.1.</span> <span class="nav-text">注释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单行"><span class="nav-number">1.1.1.</span> <span class="nav-text">单行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多行"><span class="nav-number">1.1.2.</span> <span class="nav-text">多行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">1.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字面量"><span class="nav-number">1.3.</span> <span class="nav-text">字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键词"><span class="nav-number">1.4.</span> <span class="nav-text">关键词</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#镜像安装"><span class="nav-number">1.</span> <span class="nav-text">镜像安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js"><span class="nav-number">1.1.</span> <span class="nav-text">node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql"><span class="nav-number">1.2.</span> <span class="nav-text">mysql</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成容器"><span class="nav-number">2.</span> <span class="nav-text">生成容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-1"><span class="nav-number">2.1.</span> <span class="nav-text">mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js-1"><span class="nav-number">2.2.</span> <span class="nav-text">node.js</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码部署"><span class="nav-number">3.</span> <span class="nav-text">代码部署</span></a></li></ol></div>
             
           </div>
         </section>
