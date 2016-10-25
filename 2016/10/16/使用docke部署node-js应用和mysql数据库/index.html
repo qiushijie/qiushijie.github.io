@@ -96,7 +96,7 @@ mysql1docker pull mysql:latest
 node.js1docker pull node:latest
 mysql1docker pull mysql:latest
 生成容器mysql生成一个名为mysql的mysql容器，设置密码为my-secret-pw，默认用户名为root，并">
-<meta property="og:updated_time" content="2016-10-16T13:26:12.000Z">
+<meta property="og:updated_time" content="2016-10-16T14:42:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用docke部署node.js应用和mysql数据库">
 <meta name="twitter:description" content="镜像安装从docker hub下载镜像并安装，如果遇到权限不足情况加上sudo运行，使用latest会自动安装最新的版本，并且会将本地镜像自动更新到最新。
@@ -339,7 +339,7 @@ mysql1docker pull mysql:latest
 <h2 id="node-js-1"><a href="#node-js-1" class="headerlink" title="node.js"></a>node.js</h2><p>生成一个名为node的node.js容器，并link mysql容器到当前容器，别名为db，将node容器内部3000端口映射到主机的3333端口。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -i -p 3333:3000 --name node --link mysql:db node:latest</div></pre></td></tr></table></figure>
 <p>使用link命令可以在两个容器将建立连接，主容器可以直接访问子容器中的网络端口。</p>
-<p>mysql进行将会在子容器中自动设定其密码和host以及post，在程序中使用process.env获取相关的环境变量</p>
+<p>mysql进行将会在子容器中自动设定其密码和host以及post，在程序中使用process.env.别名<em>ENV</em>资源名，获取相关的环境变量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//数据库名称</div><div class="line">process.env.DB_ENV_MYSQL_DATABASE</div><div class="line">//数据库密码</div><div class="line">process.env.DB_ENV_MYSQL_ROOT_PASSWORD</div><div class="line">//host</div><div class="line">process.env.DB_PORT_3306_TCP_ADDR</div></pre></td></tr></table></figure>
 <h1 id="代码部署"><a href="#代码部署" class="headerlink" title="代码部署"></a>代码部署</h1><p>获取node容器的id</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker ps</div></pre></td></tr></table></figure>
@@ -384,6 +384,10 @@ mysql1docker pull mysql:latest
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/25/使用vscode编辑调试node-js/" rel="prev" title="使用vscode编辑调试node.js">
+                使用vscode编辑调试node.js <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -474,7 +478,7 @@ mysql1docker pull mysql:latest
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -482,7 +486,7 @@ mysql1docker pull mysql:latest
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -491,7 +495,7 @@ mysql1docker pull mysql:latest
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

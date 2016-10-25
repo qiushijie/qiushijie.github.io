@@ -255,6 +255,146 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/25/使用vscode编辑调试node-js/" itemprop="url">
+                  使用vscode编辑调试node.js
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-25T13:15:54+08:00" content="2016-10-25">
+              2016-10-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/编辑器/" itemprop="url" rel="index">
+                    <span itemprop="name">编辑器</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/25/使用vscode编辑调试node-js/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/使用vscode编辑调试node-js/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="tasks"><a href="#tasks" class="headerlink" title="tasks"></a>tasks</h1><p>在.vscode目录内新建tasks.json文件，tasks可以指定运行特定的命令，可以使用babel自动编译修改后的代码。添加一个运行tasks的快捷键，打开快捷键设置加入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;key&quot;: &quot;cmd+r&quot;,</div><div class="line">	&quot;command&quot;: &quot;workbench.action.tasks.runTask&quot;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>按下快捷键后直接选择运行相应的task</p>
+<h2 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h2><p>加入编译task，并设定isWatching为true</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;version&quot;: &quot;0.1.0&quot;,</div><div class="line">    &quot;command&quot;: &quot;/usr/local/bin/babel&quot;,</div><div class="line">    &quot;isShellCommand&quot;: true,</div><div class="line">    &quot;tasks&quot;: [</div><div class="line">        &#123;</div><div class="line">            &quot;args&quot;: [&quot;src&quot;, &quot;--out-dir&quot;, &quot;dist&quot;, &quot;-w&quot;, &quot;--source-maps&quot;],</div><div class="line">            &quot;taskName&quot;: &quot;watch&quot;,</div><div class="line">            &quot;suppressTaskName&quot;: true,</div><div class="line">            &quot;isBuildCommand&quot;: true,</div><div class="line">            &quot;isWatching&quot;: true</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="多task"><a href="#多task" class="headerlink" title="多task"></a>多task</h2><p>vscode的tasks默认有一个command命令，执行的tasks是在这个command内的，如果要在task内做多个不同命令的操作，可以设定运行的命令为shell。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&quot;isShellCommand&quot;: true,</div><div class="line">&quot;linux&quot;: &#123;</div><div class="line">    &quot;command&quot;: &quot;sh&quot;,</div><div class="line">    &quot;args&quot;: [&quot;-c&quot;]</div><div class="line">&#125;,</div><div class="line">&quot;osx&quot;: &#123;</div><div class="line">    &quot;command&quot;: &quot;sh&quot;,</div><div class="line">    &quot;args&quot;: [&quot;-c&quot;]</div><div class="line">&#125;,</div><div class="line">&quot;windows&quot;: &#123;</div><div class="line">    &quot;command&quot;: &quot;powershell&quot;,</div><div class="line">    &quot;args&quot;: [&quot;-Command&quot;]</div><div class="line">&#125;,</div><div class="line">&quot;tasks&quot; : [...]</div></pre></td></tr></table></figure>
+<h2 id="运行单个js文件"><a href="#运行单个js文件" class="headerlink" title="运行单个js文件"></a>运行单个js文件</h2><p>点击需要运行的文件，cmd + r，选择runFile就可以运行了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&quot;tasks&quot;: [</div><div class="line">        &#123;</div><div class="line">            &quot;taskName&quot;: &quot;runFile&quot;,</div><div class="line">            &quot;suppressTaskName&quot;: true,</div><div class="line">            &quot;showOutput&quot;: &quot;always&quot;,</div><div class="line">            &quot;problemMatcher&quot;: &quot;$jshint&quot;,</div><div class="line">            &quot;args&quot;: [&quot;node --harmony $&#123;file&#125;&quot;]</div><div class="line">        &#125;</div><div class="line">    ]</div></pre></td></tr></table></figure>
+<h2 id="运行单个mocha测试"><a href="#运行单个mocha测试" class="headerlink" title="运行单个mocha测试"></a>运行单个mocha测试</h2><p>点击需要运行的测试文件，cmd + r选择runTest运行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&quot;tasks&quot;: [</div><div class="line">        &#123;</div><div class="line">            &quot;taskName&quot; : &quot;runTest&quot;,</div><div class="line">            &quot;suppressTaskName&quot;: true,</div><div class="line">            &quot;showOutput&quot;: &quot;always&quot;,</div><div class="line">            &quot;problemMatcher&quot;: &quot;$jshint&quot;,</div><div class="line">            &quot;args&quot; : [&quot;mocha $&#123;file&#125;&quot;]</div><div class="line">        &#125;</div><div class="line">    ]</div></pre></td></tr></table></figure>
+<h2 id="tasks示例"><a href="#tasks示例" class="headerlink" title="tasks示例"></a>tasks示例</h2><p>可以运行单个文件，也可以运行单个测试，使用babel编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;version&quot;: &quot;0.1.0&quot;,</div><div class="line">    &quot;isShellCommand&quot;: true,</div><div class="line">    &quot;linux&quot;: &#123;</div><div class="line">        &quot;command&quot;: &quot;sh&quot;,</div><div class="line">        &quot;args&quot;: [&quot;-c&quot;]</div><div class="line">    &#125;,</div><div class="line">    &quot;osx&quot;: &#123;</div><div class="line">        &quot;command&quot;: &quot;sh&quot;,</div><div class="line">        &quot;args&quot;: [&quot;-c&quot;]</div><div class="line">    &#125;,</div><div class="line">    &quot;windows&quot;: &#123;</div><div class="line">        &quot;command&quot;: &quot;powershell&quot;,</div><div class="line">        &quot;args&quot;: [&quot;-Command&quot;]</div><div class="line">    &#125;,</div><div class="line">    &quot;tasks&quot;: [</div><div class="line">        &#123;</div><div class="line">            &quot;taskName&quot;: &quot;runFile&quot;,</div><div class="line">            &quot;suppressTaskName&quot;: true,</div><div class="line">            &quot;showOutput&quot;: &quot;always&quot;,</div><div class="line">            &quot;problemMatcher&quot;: &quot;$jshint&quot;,</div><div class="line">            &quot;args&quot;: [&quot;node --harmony $&#123;file&#125;&quot;]</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &quot;taskName&quot; : &quot;runTest&quot;,</div><div class="line">            &quot;suppressTaskName&quot;: true,</div><div class="line">            &quot;showOutput&quot;: &quot;always&quot;,</div><div class="line">            &quot;problemMatcher&quot;: &quot;$jshint&quot;,</div><div class="line">            &quot;args&quot; : [&quot;mocha $&#123;file&#125;&quot;]</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &quot;args&quot;: [&quot;babel src --out-dir dist -s -w &amp; babel test --out-dir test-dist -s -w&quot;],</div><div class="line">            &quot;taskName&quot;: &quot;watch&quot;,</div><div class="line">            &quot;suppressTaskName&quot;: true,</div><div class="line">            &quot;isBuildCommand&quot;: true,</div><div class="line">            &quot;isWatching&quot;: true</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h1><p>在.vscode目录内新建launch.json文件，launch.json文件是vscode用于运行和调试的配置文件。</p>
+<h2 id="launch示例"><a href="#launch示例" class="headerlink" title="launch示例"></a>launch示例</h2><p>以下配置文件为运行express的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</div><div class="line">    &quot;configurations&quot;: [</div><div class="line">        &#123;</div><div class="line">            &quot;name&quot;: &quot;启动&quot;,</div><div class="line">            &quot;type&quot;: &quot;node&quot;,</div><div class="line">            &quot;request&quot;: &quot;launch&quot;,</div><div class="line">            &quot;program&quot;: &quot;$&#123;workspaceRoot&#125;/bin/www&quot;,</div><div class="line">            &quot;stopOnEntry&quot;: false,</div><div class="line">            &quot;args&quot;: [],</div><div class="line">            &quot;cwd&quot;: &quot;$&#123;workspaceRoot&#125;&quot;,</div><div class="line">            &quot;preLaunchTask&quot;: null,</div><div class="line">            &quot;runtimeExecutable&quot;: null,</div><div class="line">            &quot;runtimeArgs&quot;: [</div><div class="line">                &quot;--nolazy&quot;</div><div class="line">            ],</div><div class="line">            &quot;env&quot;: &#123;</div><div class="line">                &quot;NODE_ENV&quot;: &quot;development&quot;</div><div class="line">            &#125;,</div><div class="line">            &quot;console&quot;: &quot;internalConsole&quot;,</div><div class="line">            &quot;sourceMaps&quot;: true,</div><div class="line">            &quot;outFiles&quot;: [&quot;$&#123;workspaceRoot&#125;/dist/**/*.js&quot;, &quot;$&#123;workspaceRoot&#125;/node_modules/**/*.js&quot;]</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &quot;name&quot;: &quot;附加&quot;,</div><div class="line">            &quot;type&quot;: &quot;node&quot;,</div><div class="line">            &quot;request&quot;: &quot;attach&quot;,</div><div class="line">            &quot;port&quot;: 5858,</div><div class="line">            &quot;address&quot;: &quot;localhost&quot;,</div><div class="line">            &quot;restart&quot;: false,</div><div class="line">            &quot;sourceMaps&quot;: true,</div><div class="line">            &quot;outFiles&quot;: [&quot;$&#123;workspaceRoot&#125;/dist/**/*.js&quot;, &quot;$&#123;workspaceRoot&#125;/node_modules/**/*.js&quot;],</div><div class="line">            &quot;localRoot&quot;: &quot;$&#123;workspaceRoot&#125;&quot;,</div><div class="line">            &quot;remoteRoot&quot;: null</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &quot;name&quot;: &quot;附加到进程&quot;,</div><div class="line">            &quot;type&quot;: &quot;node&quot;,</div><div class="line">            &quot;request&quot;: &quot;attach&quot;,</div><div class="line">            &quot;processId&quot;: &quot;$&#123;command.PickProcess&#125;&quot;,</div><div class="line">            &quot;port&quot;: 5858,</div><div class="line">            &quot;sourceMaps&quot;: true,</div><div class="line">            &quot;outFiles&quot;: [&quot;$&#123;workspaceRoot&#125;/dist/**/*.js&quot;, &quot;$&#123;workspaceRoot&#125;/node_modules/**/*.js&quot;]</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><h3 id="program"><a href="#program" class="headerlink" title="program"></a>program</h3><p>程序入口文件</p>
+<h3 id="env"><a href="#env" class="headerlink" title="env"></a>env</h3><p>node 运行环境变量</p>
+<h3 id="runtimeArgs"><a href="#runtimeArgs" class="headerlink" title="runtimeArgs"></a>runtimeArgs</h3><p>node 运行参数，如<code>&quot;runtimeArgs&quot; : [&quot;--harmony&quot;]</code></p>
+<h3 id="sourceMaps"><a href="#sourceMaps" class="headerlink" title="sourceMaps"></a>sourceMaps</h3><p>指定是否使用sourceMaps，默认为false</p>
+<h3 id="outFiles"><a href="#outFiles" class="headerlink" title="outFiles"></a>outFiles</h3><p>sourceMap文件目录</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/16/使用docke部署node-js应用和mysql数据库/" itemprop="url">
                   使用docke部署node.js应用和mysql数据库
                 </a>
@@ -333,7 +473,7 @@
 <h2 id="node-js-1"><a href="#node-js-1" class="headerlink" title="node.js"></a>node.js</h2><p>生成一个名为node的node.js容器，并link mysql容器到当前容器，别名为db，将node容器内部3000端口映射到主机的3333端口。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -i -p 3333:3000 --name node --link mysql:db node:latest</div></pre></td></tr></table></figure>
 <p>使用link命令可以在两个容器将建立连接，主容器可以直接访问子容器中的网络端口。</p>
-<p>mysql进行将会在子容器中自动设定其密码和host以及post，在程序中使用process.env获取相关的环境变量</p>
+<p>mysql进行将会在子容器中自动设定其密码和host以及post，在程序中使用process.env.别名<em>ENV</em>资源名，获取相关的环境变量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//数据库名称</div><div class="line">process.env.DB_ENV_MYSQL_DATABASE</div><div class="line">//数据库密码</div><div class="line">process.env.DB_ENV_MYSQL_ROOT_PASSWORD</div><div class="line">//host</div><div class="line">process.env.DB_PORT_3306_TCP_ADDR</div></pre></td></tr></table></figure>
 <h1 id="代码部署"><a href="#代码部署" class="headerlink" title="代码部署"></a>代码部署</h1><p>获取node容器的id</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker ps</div></pre></td></tr></table></figure>
@@ -1314,129 +1454,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/06/npm项目本地部署：使用npm-link/" itemprop="url">
-                  npm项目本地部署：使用npm link
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-06T12:08:50+08:00" content="2016-10-06">
-              2016-10-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/node-js/" itemprop="url" rel="index">
-                    <span itemprop="name">node.js</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/06/npm项目本地部署：使用npm-link/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/06/npm项目本地部署：使用npm-link/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有的时候，我们开发的私有公共项目，其他项目需要引用，但是又不希望发布到npm仓库中（下一篇文章将介绍怎么搭建私有npm仓库），或者是该私有项目还需要不断的去调试，在其他项目中调用的过程中出现的问题能及时修复。这样的情况下，在本地直接依赖该私有项目是一个比较不错的解决方案。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>先进入到需要发布的项目目录，执行sudo npm link命令，该命令将项目link到全局的node_modules目录中</p>
-<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>进入到需要引用该私有项目的目录中，执行npm link 私有项目名称即可</p>
-<h1 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h1><p>接下来介绍一下另外一种情况，如果项目中使用了babel等工具对代码进行编译，我们直接在项目的根目录link会导致引用出现异常，因为这里的代码是还没有经过编译的。例如我们编译后的代码放在dist目录中，先将package.json等文件拷贝过去，最好是写成一个build命令，因为在发布的时候也会用到。然后进入dist目录，在dist目录下去执行sudo npm link即可。如果项目添加了新的依赖，需要重新进入到dist目录里面来运行sudo npm install命令。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1482,7 +1499,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1490,7 +1507,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1499,7 +1516,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
