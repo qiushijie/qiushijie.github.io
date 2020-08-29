@@ -5,6 +5,7 @@
 ### [JVM思维导图](https://app.yinxiang.com/fx/ed1dfe58-53c7-4da5-ba0d-5ea58a1294fd)
 
 ### [java并行编程synchronized](https://app.yinxiang.com/fx/26f40b4c-4053-4eb9-9321-39ac9eca6726)
+> synchronized是java中用于控制并行执行顺序的关键词，synchronized是一个声明式的锁定义方式，通过在代码中加入synchronized关键词来控制并行的执行顺序。
 
 ### [并发编程思维导图](https://app.yinxiang.com/fx/751a661e-1766-47f7-852a-9457ab63ba2a)
 
