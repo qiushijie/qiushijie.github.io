@@ -8,6 +8,20 @@
 
 ### [并发编程思维导图](https://app.yinxiang.com/fx/751a661e-1766-47f7-852a-9457ab63ba2a)
 
+## spring
+
+### [spring aop源码剖析](https://app.yinxiang.com/fx/663f81b2-2736-43b7-aa64-3229c256a50e)
+
+### [spring ioc容器源码剖析](https://app.yinxiang.com/fx/12970fe8-aa85-4f3e-822f-36800637c283)
+
+### [spring ioc容器思维导图](https://app.yinxiang.com/fx/0ca62381-75fd-4877-ab08-c7eeb8890300)
+
+## Java框架
+
+### [mybatis源码剖析](https://app.yinxiang.com/fx/8bf6600f-b0bf-44c0-a4e6-95e25c6a6adc)
+
+### [mybatis思维导图](https://app.yinxiang.com/fx/95cf9d58-787d-4b3a-a1ef-69655dda1d91)
+
 ## 计算机网络
 
 ### [TCP报文格式](https://app.yinxiang.com/fx/4f707fe1-af3c-4be7-b34f-10454594fb77)
